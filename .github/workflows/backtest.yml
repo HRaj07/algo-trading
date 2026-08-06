@@ -1,0 +1,78 @@
+name: 📈 Run Backtest Suite
+
+on:
+  workflow_dispatch:  # Manual trigger only
+  push:
+    paths:
+      - 'strategies/**'   # Auto-run when strategies change
+      - 'config.py'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    name: Full Strategy Backtest
+
+    steps:
+      - name: 🔄 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: 📦 Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 📊 Run full backtest suite
+        run: python main.py --backtest
+
+      - name: 📋 Print results
+        run: |
+          echo "=== Backtest Results ==="
+          for f in backtest_results/*.json; do
+            echo ""
+            echo "--- $f ---"
+            python3 -c "
+          import json
+          with open('$f') as file:
+              r = json.load(file)
+          print(f\"Strategy: {r.get('strategy')}\")
+          print(f\"CAGR: {r.get('cagr_pct')}%\")
+          print(f\"Sharpe: {r.get('sharpe_ratio')}\")
+          print(f\"Max Drawdown: {r.get('max_drawdown_pct')}%\")
+          print(f\"Calmar: {r.get('calmar_ratio')}\")
+          print(f\"Alpha: {r.get('alpha_pct')}%\")
+          " 2>/dev/null || true
+          done
+
+      - name: 💾 Commit backtest results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add backtest_results/ reports/ || true
+          git diff --staged --quiet || git commit -m "📈 Backtest results $(date -u '+%Y-%m-%d')" && git push
+
+      - name: 📄 Upload for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'reports/'
+
+  deploy-pages:
+    needs: backtest
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

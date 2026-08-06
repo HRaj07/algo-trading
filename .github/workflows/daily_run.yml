@@ -1,0 +1,125 @@
+name: 🤖 Daily Algo Trading Run
+
+on:
+  schedule:
+    # 3:45 PM IST = 10:15 UTC (15 min after NSE market close)
+    # GitHub Actions may delay ~10-15 min, so 10:00 UTC = ~3:30 PM IST close works well
+    - cron: '15 10 * * 1-5'  # Mon-Fri only
+
+  workflow_dispatch:   # Allow manual trigger
+    inputs:
+      mode:
+        description: 'Run mode'
+        required: false
+        default: 'signals'
+        type: choice
+        options:
+          - signals
+          - backtest
+          - report-only
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  PYTHON_VERSION: '3.12'
+
+jobs:
+  run-trading-bot:
+    runs-on: ubuntu-latest
+    name: Run Trading Strategies
+
+    steps:
+      - name: 🔄 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for git operations
+
+      - name: 🐍 Set up Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: 📦 Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 📅 Show run info
+        run: |
+          echo "==================================="
+          echo " AlgoTrade India - Daily Run"
+          echo " Time: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          echo " Mode: ${{ github.event.inputs.mode || 'signals' }}"
+          echo "==================================="
+
+      - name: 🔍 Run trading strategies
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ANGEL_API_KEY: ${{ secrets.ANGEL_API_KEY }}
+          ANGEL_CLIENT_ID: ${{ secrets.ANGEL_CLIENT_ID }}
+          ANGEL_TOTP_SECRET: ${{ secrets.ANGEL_TOTP_SECRET }}
+        run: |
+          MODE="${{ github.event.inputs.mode || 'signals' }}"
+          if [ "$MODE" = "backtest" ]; then
+            python main.py --backtest
+          elif [ "$MODE" = "report-only" ]; then
+            python main.py --report-only
+          else
+            python main.py
+          fi
+
+      - name: 📊 Check signal output
+        run: |
+          echo "=== Latest Signals ==="
+          tail -n 1 logs/signals.json | python3 -c "
+          import json,sys
+          data = json.load(sys.stdin)
+          print(f\"Date: {data['date']}\")
+          print(f\"BUY signals: {data['n_buy']}\")
+          print(f\"SELL signals: {data['n_sell']}\")
+          for s in data.get('signals', [])[:10]:
+              print(f\"  {s.get('signal','?')} {s.get('ticker','?')} [{s.get('strategy','?')}]\")
+          " || echo "No signals yet"
+          echo ""
+          echo "=== Portfolio ==="
+          cat logs/performance.json 2>/dev/null || echo "No performance data yet"
+
+      - name: 💾 Commit results to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add logs/ reports/ backtest_results/ || true
+          # Only commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "📊 Auto: Daily signals $(date -u '+%Y-%m-%d') | $(cat logs/signals.json 2>/dev/null | tail -1 | python3 -c 'import json,sys; d=json.load(sys.stdin); print(f\"{d[\"n_buy\"]} buys, {d[\"n_sell\"]} sells\")' 2>/dev/null || echo 'updated')"
+            git push
+            echo "✅ Results committed to repository"
+          fi
+
+      - name: 📄 Upload dashboard for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        if: always()
+        with:
+          path: 'reports/'
+
+  deploy-pages:
+    name: 🌐 Deploy GitHub Pages Dashboard
+    needs: run-trading-bot
+    runs-on: ubuntu-latest
+    if: always()
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

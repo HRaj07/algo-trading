@@ -1,0 +1,73 @@
+ticker,name,sector,index
+RELIANCE.NS,Reliance Industries,Energy,Nifty50
+TCS.NS,Tata Consultancy Services,IT,Nifty50
+HDFCBANK.NS,HDFC Bank,Banking,Nifty50
+BHARTIARTL.NS,Bharti Airtel,Telecom,Nifty50
+ICICIBANK.NS,ICICI Bank,Banking,Nifty50
+INFOSYS.NS,Infosys,IT,Nifty50
+SBIN.NS,State Bank of India,Banking,Nifty50
+HINDUNILVR.NS,Hindustan Unilever,FMCG,Nifty50
+ITC.NS,ITC,FMCG,Nifty50
+LT.NS,Larsen & Toubro,Capital Goods,Nifty50
+KOTAKBANK.NS,Kotak Mahindra Bank,Banking,Nifty50
+AXISBANK.NS,Axis Bank,Banking,Nifty50
+BAJFINANCE.NS,Bajaj Finance,NBFC,Nifty50
+MARUTI.NS,Maruti Suzuki,Auto,Nifty50
+SUNPHARMA.NS,Sun Pharmaceutical,Pharma,Nifty50
+TITAN.NS,Titan Company,Consumer,Nifty50
+NESTLEIND.NS,Nestle India,FMCG,Nifty50
+ULTRACEMCO.NS,UltraTech Cement,Cement,Nifty50
+POWERGRID.NS,Power Grid Corporation,Power,Nifty50
+NTPC.NS,NTPC,Power,Nifty50
+WIPRO.NS,Wipro,IT,Nifty50
+HCLTECH.NS,HCL Technologies,IT,Nifty50
+TECHM.NS,Tech Mahindra,IT,Nifty50
+INDUSINDBK.NS,IndusInd Bank,Banking,Nifty50
+ASIANPAINT.NS,Asian Paints,Consumer,Nifty50
+BAJAJFINSV.NS,Bajaj Finserv,NBFC,Nifty50
+M&M.NS,Mahindra & Mahindra,Auto,Nifty50
+TATAMOTORS.NS,Tata Motors,Auto,Nifty50
+ONGC.NS,Oil & Natural Gas Corp,Energy,Nifty50
+COALINDIA.NS,Coal India,Mining,Nifty50
+ADANIPORTS.NS,Adani Ports,Infrastructure,Nifty50
+BPCL.NS,Bharat Petroleum,Energy,Nifty50
+CIPLA.NS,Cipla,Pharma,Nifty50
+DRREDDY.NS,Dr Reddys Laboratories,Pharma,Nifty50
+EICHERMOT.NS,Eicher Motors,Auto,Nifty50
+GRASIM.NS,Grasim Industries,Diversified,Nifty50
+HEROMOTOCO.NS,Hero MotoCorp,Auto,Nifty50
+HINDALCO.NS,Hindalco Industries,Metals,Nifty50
+JSWSTEEL.NS,JSW Steel,Metals,Nifty50
+BRITANNIA.NS,Britannia Industries,FMCG,Nifty50
+APOLLOHOSP.NS,Apollo Hospitals,Healthcare,Nifty50
+DIVISLAB.NS,Divis Laboratories,Pharma,Nifty50
+LTIM.NS,LTIMindtree,IT,Nifty50
+SBILIFE.NS,SBI Life Insurance,Insurance,Nifty50
+HDFCLIFE.NS,HDFC Life Insurance,Insurance,Nifty50
+TATACONSUM.NS,Tata Consumer Products,FMCG,Nifty50
+BAJAJ-AUTO.NS,Bajaj Auto,Auto,Nifty50
+SHRIRAMFIN.NS,Shriram Finance,NBFC,Nifty50
+TATASTEEL.NS,Tata Steel,Metals,Nifty50
+BEL.NS,Bharat Electronics,Defence,Nifty50
+ZOMATO.NS,Zomato,Consumer Tech,NiftyNext50
+TRENT.NS,Trent,Retail,NiftyNext50
+ADANIENT.NS,Adani Enterprises,Diversified,NiftyNext50
+ADANIGREEN.NS,Adani Green Energy,Renewables,NiftyNext50
+DLF.NS,DLF,Real Estate,NiftyNext50
+HAVELLS.NS,Havells India,Consumer Goods,NiftyNext50
+IRCTC.NS,Indian Railway Catering,Travel,NiftyNext50
+CHOLAFIN.NS,Cholamandalam Finance,NBFC,NiftyNext50
+NAUKRI.NS,Info Edge,Consumer Tech,NiftyNext50
+PERSISTENT.NS,Persistent Systems,IT,NiftyNext50
+SIEMENS.NS,Siemens India,Capital Goods,NiftyNext50
+GODREJCP.NS,Godrej Consumer Products,FMCG,NiftyNext50
+AMBUJACEM.NS,Ambuja Cements,Cement,NiftyNext50
+BANKBARODA.NS,Bank of Baroda,Banking,NiftyNext50
+GAIL.NS,GAIL India,Gas,NiftyNext50
+COLPAL.NS,Colgate-Palmolive,FMCG,NiftyNext50
+LUPIN.NS,Lupin,Pharma,NiftyNext50
+NMDC.NS,NMDC,Mining,NiftyNext50
+VEDL.NS,Vedanta,Metals,NiftyNext50
+VBL.NS,Varun Beverages,Beverages,NiftyNext50
+PETRONET.NS,Petronet LNG,Energy,NiftyNext50
+ABB.NS,ABB India,Capital Goods,NiftyNext50

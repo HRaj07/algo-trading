@@ -1,0 +1,33 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Virtual environments
+venv/
+env/
+.env/
+.venv/
+
+# Data cache (large files, regenerated automatically)
+data/cache/
+
+# Logs - KEEP logs/ directory but not large cache files
+*.log.gz
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Environment variables (NEVER commit secrets!)
+.env
+*.env.local
+
+# Jupyter notebooks
+.ipynb_checkpoints/
