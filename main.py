@@ -317,6 +317,7 @@ def _send_notification(message: str) -> None:
             webhook_url, data=payload, method="POST"
         )
         req.add_header("Content-Type", "application/json")
+        req.add_header("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)")
         urllib.request.urlopen(req, timeout=10)
         logger.info("✅ Discord notification sent")
     except Exception as e:
