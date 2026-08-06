@@ -7,7 +7,7 @@
       "entry_date": "2026-08-06",
       "strategy": "momentum_breakout",
       "stop_loss": 40961.88,
-      "days_held": 1
+      "days_held": 2
     }
   },
   "trade_history": [
@@ -21,7 +21,7 @@
       "strategy": "momentum_breakout"
     }
   ],
-  "last_updated": "2026-08-06T23:09:50.490196",
+  "last_updated": "2026-08-06T18:35:57.038614",
   "strategy_allocations": {
     "dual_momentum": 0.0,
     "momentum_breakout": 0.0,
