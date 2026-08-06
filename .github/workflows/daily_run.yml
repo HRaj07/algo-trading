@@ -21,7 +21,7 @@ permissions:
 
 jobs:
   run-trading-bot:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     name: Run Trading Strategies
 
     steps:
