@@ -1,8 +1,8 @@
 # 🇮🇳 AlgoTrade India — GitHub-Native Algo Trading System
 
-[![Daily Trading Run](https://github.com/YOUR_USERNAME/algo-trading/actions/workflows/daily_run.yml/badge.svg)](https://github.com/YOUR_USERNAME/algo-trading/actions/workflows/daily_run.yml)
-[![Backtest](https://github.com/YOUR_USERNAME/algo-trading/actions/workflows/backtest.yml/badge.svg)](https://github.com/YOUR_USERNAME/algo-trading/actions/workflows/backtest.yml)
-[![GitHub Pages](https://img.shields.io/badge/Dashboard-Live-00d4ff)](https://YOUR_USERNAME.github.io/algo-trading)
+[![Daily Trading Run](https://github.com/HRaj07/algo-trading/actions/workflows/daily_run.yml/badge.svg)](https://github.com/HRaj07/algo-trading/actions/workflows/daily_run.yml)
+[![Backtest](https://github.com/HRaj07/algo-trading/actions/workflows/backtest.yml/badge.svg)](https://github.com/HRaj07/algo-trading/actions/workflows/backtest.yml)
+[![GitHub Pages](https://img.shields.io/badge/Dashboard-Live-00d4ff)](https://HRaj07.github.io/algo-trading)
 
 > **Paper Trading** • **Fully Automated** • **Zero Infrastructure Cost** • **Indian Stock Market (NSE)**
 
@@ -14,7 +14,7 @@ A fully automated algorithmic trading system for Indian stocks that runs **entir
 
 - 📅 **Runs daily** via GitHub Actions at 3:45 PM IST (after NSE market close)
 - 💾 **Auto-commits** signals, trade logs, and performance data to this repository  
-- 🌐 **Live dashboard** at [GitHub Pages](https://YOUR_USERNAME.github.io/algo-trading)
+- 🌐 **Live dashboard** at [GitHub Pages](https://HRaj07.github.io/algo-trading)
 - 📱 **Telegram alerts** for daily buy/sell signals
 
 ## 📊 Strategy Suite
@@ -77,7 +77,7 @@ algo-trading/
 
 ### Step 1: Fork this repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/algo-trading
+git clone https://github.com/HRaj07/algo-trading
 cd algo-trading
 ```
 
