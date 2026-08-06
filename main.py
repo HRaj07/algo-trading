@@ -294,28 +294,33 @@ def _save_signals(signals: List[Dict]) -> None:
 
 
 def _send_notification(message: str) -> None:
-    """Send Telegram notification if configured."""
-    token = os.environ.get("TELEGRAM_BOT_TOKEN")
-    chat_id = os.environ.get("TELEGRAM_CHAT_ID")
+    """Send Discord notification via webhook."""
+    webhook_url = os.environ.get("DISCORD_WEBHOOK_URL")
 
-    if not token or not chat_id:
-        logger.debug("Telegram not configured (TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID not set)")
+    if not webhook_url:
+        logger.debug("Discord webhook not configured (DISCORD_WEBHOOK_URL not set)")
         return
 
     try:
         import urllib.request
-        import urllib.parse
-        url = f"https://api.telegram.org/bot{token}/sendMessage"
-        data = urllib.parse.urlencode({
-            "chat_id": chat_id,
-            "text": message,
-            "parse_mode": "HTML",
-        }).encode()
-        req = urllib.request.Request(url, data=data, method="POST")
+        import json as _json
+
+        # Format nicely for Discord (wrap in code block)
+        discord_message = f"```\n{message}\n```"
+        payload = _json.dumps({
+            "username": "AlgoTrade India 🇮🇳",
+            "avatar_url": "https://em-content.zobj.net/source/twitter/376/chart-increasing_1f4c8.png",
+            "content": discord_message,
+        }).encode("utf-8")
+
+        req = urllib.request.Request(
+            webhook_url, data=payload, method="POST"
+        )
+        req.add_header("Content-Type", "application/json")
         urllib.request.urlopen(req, timeout=10)
-        logger.info("Telegram notification sent")
+        logger.info("✅ Discord notification sent")
     except Exception as e:
-        logger.warning(f"Telegram notification failed: {e}")
+        logger.warning(f"Discord notification failed: {e}")
 
 
 if __name__ == "__main__":
