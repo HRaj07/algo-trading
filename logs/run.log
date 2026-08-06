@@ -1,0 +1,82 @@
+2026-08-06 23:06:49 | WARNING  | data.fetcher | nsepy not available, using yfinance only
+2026-08-06 23:06:49 | INFO     | main | ============================================================
+2026-08-06 23:06:49 | INFO     | main | AlgoTrade India | Daily Run | 2026-08-06 23:06:49
+2026-08-06 23:06:49 | INFO     | main | ============================================================
+2026-08-06 23:06:49 | INFO     | data.fetcher | DataFetcher initialized | cache: data/cache
+2026-08-06 23:06:49 | INFO     | engine.portfolio | Initialized new portfolio with ₹1,000,000
+2026-08-06 23:06:49 | INFO     | main | 
+[1/3] Running Dual Momentum Strategy...
+2026-08-06 23:06:49 | INFO     | strategies.dual_momentum | Dual Momentum: Fetching data for today's signal...
+2026-08-06 23:06:55 | ERROR    | yfinance | HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: INFOSYS.NS"}}}
+2026-08-06 23:06:55 | ERROR    | yfinance | $INFOSYS.NS: possibly delisted; no timezone found
+2026-08-06 23:07:11 | ERROR    | yfinance | HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: TATAMOTORS.NS"}}}
+2026-08-06 23:07:11 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
+2026-08-06 23:07:21 | ERROR    | yfinance | $LTIM.NS: possibly delisted; no timezone found
+2026-08-06 23:07:25 | WARNING  | data.fetcher | Failed tickers (3): ['INFOSYS.NS', 'TATAMOTORS.NS', 'LTIM.NS']...
+2026-08-06 23:07:25 | INFO     | data.fetcher | Fetched data for 47/50 tickers
+2026-08-06 23:07:26 | INFO     | strategies.dual_momentum | Dual Momentum: Absolute momentum negative → Cash mode
+2026-08-06 23:07:26 | INFO     | main |   → Dual Momentum: IN CASH
+2026-08-06 23:07:26 | INFO     | main | 
+[2/3] Running Momentum Breakout Strategy...
+2026-08-06 23:07:26 | INFO     | strategies.momentum_breakout | Momentum Breakout: Fetching data...
+2026-08-06 23:07:27 | ERROR    | yfinance | $INFOSYS.NS: possibly delisted; no timezone found
+2026-08-06 23:07:29 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
+2026-08-06 23:07:31 | ERROR    | yfinance | $LTIM.NS: possibly delisted; no timezone found
+2026-08-06 23:07:35 | ERROR    | yfinance | $ADANITRANS.NS: possibly delisted; no timezone found
+2026-08-06 23:07:48 | ERROR    | yfinance | $MCDOWELL-N.NS: possibly delisted; no timezone found
+2026-08-06 23:07:59 | ERROR    | yfinance | $ZOMATO.NS: possibly delisted; no timezone found
+2026-08-06 23:07:59 | WARNING  | data.fetcher | Failed tickers (6): ['INFOSYS.NS', 'TATAMOTORS.NS', 'LTIM.NS', 'ADANITRANS.NS', 'MCDOWELL-N.NS', 'ZOMATO.NS']...
+2026-08-06 23:07:59 | INFO     | data.fetcher | Fetched data for 84/90 tickers
+2026-08-06 23:07:59 | INFO     | main |   → BREAKOUT BUY BOSCHLTD.NS @ ₹42920.0 | SL: ₹40961.88
+2026-08-06 23:07:59 | INFO     | main |   Scanned: 84 | Breakouts: 1
+2026-08-06 23:07:59 | INFO     | main | 
+[3/3] Running Mean Reversion Strategy...
+2026-08-06 23:07:59 | INFO     | strategies.mean_reversion | Mean Reversion: Fetching data...
+2026-08-06 23:08:00 | ERROR    | yfinance | $INFOSYS.NS: possibly delisted; no timezone found
+2026-08-06 23:08:03 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
+2026-08-06 23:08:05 | ERROR    | yfinance | $LTIM.NS: possibly delisted; no timezone found
+2026-08-06 23:08:06 | WARNING  | data.fetcher | Failed tickers (3): ['INFOSYS.NS', 'TATAMOTORS.NS', 'LTIM.NS']...
+2026-08-06 23:08:06 | INFO     | data.fetcher | Fetched data for 47/50 tickers
+2026-08-06 23:08:06 | INFO     | engine.portfolio | BUY  BOSCHLTD.NS: 1 @ ₹42920.00 = ₹42,920 [momentum_breakout]
+2026-08-06 23:08:06 | INFO     | engine.risk | Portfolio: ₹1,000,000 | Return: 0.0%
+2026-08-06 23:08:06 | INFO     | reports.generate_report | Dashboard generated: reports/index.html
+2026-08-06 23:08:06 | INFO     | main | 
+✅ Daily run complete | 1 buys, 0 sells
+2026-08-06 23:08:06 | INFO     | main | Portfolio: {'cash': 957080.0, 'n_positions': 1, 'total_value': 1000000.0, 'total_return_pct': 0.0, 'positions': ['BOSCHLTD.NS'], 'last_updated': '2026-08-06T23:08:06.864118'}
+2026-08-06 23:09:24 | WARNING  | data.fetcher | nsepy not available, using yfinance only
+2026-08-06 23:09:24 | INFO     | main | ============================================================
+2026-08-06 23:09:24 | INFO     | main | AlgoTrade India | Daily Run | 2026-08-06 23:09:24
+2026-08-06 23:09:24 | INFO     | main | ============================================================
+2026-08-06 23:09:24 | INFO     | data.fetcher | DataFetcher initialized | cache: data/cache
+2026-08-06 23:09:24 | INFO     | engine.portfolio | Loaded portfolio: ₹957,080 cash, 1 positions
+2026-08-06 23:09:24 | INFO     | main | 
+[1/3] Running Dual Momentum Strategy...
+2026-08-06 23:09:24 | INFO     | strategies.dual_momentum | Dual Momentum: Fetching data for today's signal...
+2026-08-06 23:09:29 | ERROR    | yfinance | HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: TATAMOTORS.NS"}}}
+2026-08-06 23:09:29 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
+2026-08-06 23:09:32 | WARNING  | data.fetcher | Failed tickers (1): ['TATAMOTORS.NS']...
+2026-08-06 23:09:32 | INFO     | data.fetcher | Fetched data for 48/49 tickers
+2026-08-06 23:09:32 | INFO     | strategies.dual_momentum | Dual Momentum: Absolute momentum negative → Cash mode
+2026-08-06 23:09:32 | INFO     | main |   → Dual Momentum: IN CASH
+2026-08-06 23:09:32 | INFO     | main | 
+[2/3] Running Momentum Breakout Strategy...
+2026-08-06 23:09:32 | INFO     | strategies.momentum_breakout | Momentum Breakout: Fetching data...
+2026-08-06 23:09:35 | ERROR    | yfinance | HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: TATAMOTORS.NS"}}}
+2026-08-06 23:09:36 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
+2026-08-06 23:09:45 | ERROR    | yfinance | $ZOMATO.NS: possibly delisted; no timezone found
+2026-08-06 23:09:45 | WARNING  | data.fetcher | Failed tickers (2): ['TATAMOTORS.NS', 'ZOMATO.NS']...
+2026-08-06 23:09:45 | INFO     | data.fetcher | Fetched data for 87/89 tickers
+2026-08-06 23:09:45 | INFO     | main |   → BREAKOUT BUY BOSCHLTD.NS @ ₹42920.0 | SL: ₹40961.88
+2026-08-06 23:09:45 | INFO     | main |   Scanned: 87 | Breakouts: 1
+2026-08-06 23:09:45 | INFO     | main | 
+[3/3] Running Mean Reversion Strategy...
+2026-08-06 23:09:45 | INFO     | strategies.mean_reversion | Mean Reversion: Fetching data...
+2026-08-06 23:09:48 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
+2026-08-06 23:09:50 | WARNING  | data.fetcher | Failed tickers (1): ['TATAMOTORS.NS']...
+2026-08-06 23:09:50 | INFO     | data.fetcher | Fetched data for 48/49 tickers
+2026-08-06 23:09:50 | INFO     | engine.risk | Portfolio: ₹1,000,000 | Return: 0.0%
+2026-08-06 23:09:50 | INFO     | reports.generate_report | Dashboard generated: reports/index.html
+2026-08-06 23:09:50 | INFO     | main | 
+✅ Daily run complete | 1 buys, 0 sells
+2026-08-06 23:09:50 | INFO     | main | Portfolio: {'cash': 957080.0, 'n_positions': 1, 'total_value': 1000000.0, 'total_return_pct': 0.0, 'positions': ['BOSCHLTD.NS'], 'last_updated': '2026-08-06T23:09:50.490196'}
+2026-08-06 23:09:50 | INFO     | main | ✅ Discord notification sent

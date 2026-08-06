@@ -210,12 +210,24 @@ def run_daily_signals() -> List[Dict]:
     logger.info(f"Portfolio: {portfolio.summary()}")
 
     # Notifications
-    summary_msg = (
-        f"📊 AlgoTrade India | {date.today()}\n"
-        f"BUY signals: {len(buy_signals)}\n"
-        f"SELL signals: {len(sell_signals)}\n"
-        f"Portfolio: ₹{portfolio.portfolio_value({{}}):.0f}"
-    )
+    portfolio_val = portfolio.portfolio_value({})
+    lines = [
+        f"📊 **AlgoTrade India — Daily Report** ({date.today()})",
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        f"💼 Portfolio Value : ₹{portfolio_val:,.2f}",
+        f"🟢 BUY Signals     : {len(buy_signals)}",
+        f"🔴 SELL Signals    : {len(sell_signals)}",
+    ]
+    if buy_signals:
+        lines.append("\n**🟢 BUY Signals:**")
+        for s in buy_signals:
+            lines.append(f"• **{s.get('ticker')}** @ ₹{s.get('price', 0):,.2f} | SL: ₹{s.get('stop_loss', 0):,.2f} [{s.get('strategy')}]")
+    if sell_signals:
+        lines.append("\n**🔴 SELL Signals:**")
+        for s in sell_signals:
+            lines.append(f"• **{s.get('ticker')}** | Reason: {s.get('reason', 'Exit')}")
+    lines.append(f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+    summary_msg = "\n".join(lines)
     _send_notification(summary_msg)
 
     return all_signals
