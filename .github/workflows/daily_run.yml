@@ -2,11 +2,9 @@ name: 🤖 Daily Algo Trading Run
 
 on:
   schedule:
-    # 3:45 PM IST = 10:15 UTC (15 min after NSE market close)
-    # GitHub Actions may delay ~10-15 min, so 10:00 UTC = ~3:30 PM IST close works well
-    - cron: '15 10 * * 1-5'  # Mon-Fri only
-
-  workflow_dispatch:   # Allow manual trigger
+    # 3:45 PM IST = 10:15 UTC (after NSE market close Mon-Fri)
+    - cron: '15 10 * * 1-5'
+  workflow_dispatch:   # Manual trigger
     inputs:
       mode:
         description: 'Run mode'
@@ -20,11 +18,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-env:
-  PYTHON_VERSION: '3.12'
 
 jobs:
   run-trading-bot:
@@ -34,13 +27,11 @@ jobs:
     steps:
       - name: 🔄 Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Full history for git operations
 
-      - name: 🐍 Set up Python ${{ env.PYTHON_VERSION }}
+      - name: 🐍 Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ env.PYTHON_VERSION }}
+          python-version: '3.12'
           cache: 'pip'
 
       - name: 📦 Install dependencies
@@ -52,16 +43,13 @@ jobs:
         run: |
           echo "==================================="
           echo " AlgoTrade India - Daily Run"
-          echo " Time: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          echo " Time: $(date '+%Y-%m-%d %H:%M UTC')"
           echo " Mode: ${{ github.event.inputs.mode || 'signals' }}"
           echo "==================================="
 
       - name: 🔍 Run trading strategies
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          ANGEL_API_KEY: ${{ secrets.ANGEL_API_KEY }}
-          ANGEL_CLIENT_ID: ${{ secrets.ANGEL_CLIENT_ID }}
-          ANGEL_TOTP_SECRET: ${{ secrets.ANGEL_TOTP_SECRET }}
         run: |
           MODE="${{ github.event.inputs.mode || 'signals' }}"
           if [ "$MODE" = "backtest" ]; then
@@ -72,53 +60,37 @@ jobs:
             python main.py
           fi
 
-      - name: 📊 Check signal output
+      - name: 📊 Print signal summary
+        if: always()
         run: |
           echo "=== Latest Signals ==="
-          tail -n 1 logs/signals.json | python3 -c "
+          if [ -f logs/signals.json ]; then
+            tail -n 1 logs/signals.json | python3 -c "
           import json,sys
           data = json.load(sys.stdin)
-          print(f\"Date: {data['date']}\")
-          print(f\"BUY signals: {data['n_buy']}\")
-          print(f\"SELL signals: {data['n_sell']}\")
-          for s in data.get('signals', [])[:10]:
-              print(f\"  {s.get('signal','?')} {s.get('ticker','?')} [{s.get('strategy','?')}]\")
-          " || echo "No signals yet"
+          print(f'BUY signals : {data.get(\"n_buy\", 0)}')
+          print(f'SELL signals: {data.get(\"n_sell\", 0)}')
+          sigs = data.get('signals', [])
+          for s in sigs[:10]:
+              print(f'  {s.get(\"signal\",\"?\"):4} {s.get(\"ticker\",\"?\")} [{s.get(\"strategy\",\"?\")}]')
+          " 2>/dev/null || echo "Could not parse signals"
+          else
+            echo "No signals file yet"
+          fi
           echo ""
           echo "=== Portfolio ==="
           cat logs/performance.json 2>/dev/null || echo "No performance data yet"
 
       - name: 💾 Commit results to repository
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add logs/ reports/ backtest_results/ || true
-          # Only commit if there are changes
+          git add logs/ reports/ backtest_results/ 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "📊 Auto: Daily signals $(date -u '+%Y-%m-%d') | $(cat logs/signals.json 2>/dev/null | tail -1 | python3 -c 'import json,sys; d=json.load(sys.stdin); print(f\"{d[\"n_buy\"]} buys, {d[\"n_sell\"]} sells\")' 2>/dev/null || echo 'updated')"
+            git commit -m "📊 Auto: Daily signals $(date '+%Y-%m-%d')"
             git push
-            echo "✅ Results committed to repository"
+            echo "✅ Results committed!"
           fi
-
-      - name: 📄 Upload dashboard for GitHub Pages
-        uses: actions/upload-pages-artifact@v3
-        if: always()
-        with:
-          path: 'reports/'
-
-  deploy-pages:
-    name: 🌐 Deploy GitHub Pages Dashboard
-    needs: run-trading-bot
-    runs-on: ubuntu-latest
-    if: always()
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: 🚀 Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
