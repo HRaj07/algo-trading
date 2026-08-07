@@ -84,8 +84,8 @@ jobs:
       - name: 💾 Commit results to repository
         if: always()
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "HRaj07"
+          git config user.email "2601harshitraj@gmail.com"
           git add logs/ reports/ backtest_results/ 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "No changes to commit"
