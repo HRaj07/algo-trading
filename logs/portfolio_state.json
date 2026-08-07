@@ -7,7 +7,7 @@
       "entry_date": "2026-08-06",
       "strategy": "momentum_breakout",
       "stop_loss": 40961.88,
-      "days_held": 3
+      "days_held": 4
     },
     "CHOLAFIN.NS": {
       "qty": 25,
@@ -15,7 +15,7 @@
       "entry_date": "2026-08-07",
       "strategy": "momentum_breakout",
       "stop_loss": 1826.27,
-      "days_held": 0
+      "days_held": 1
     },
     "SHRIRAMFIN.NS": {
       "qty": 43,
@@ -23,7 +23,7 @@
       "entry_date": "2026-08-07",
       "strategy": "momentum_breakout",
       "stop_loss": 1080.1,
-      "days_held": 0
+      "days_held": 1
     }
   },
   "trade_history": [
@@ -55,7 +55,7 @@
       "strategy": "momentum_breakout"
     }
   ],
-  "last_updated": "2026-08-07T11:10:10.564383",
+  "last_updated": "2026-08-07T22:54:28.692399",
   "strategy_allocations": {
     "dual_momentum": 0.0,
     "momentum_breakout": 0.0,
