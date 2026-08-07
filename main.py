@@ -46,6 +46,7 @@ def run_daily_signals() -> List[Dict]:
     from strategies.dual_momentum import DualMomentumStrategy
     from strategies.momentum_breakout import MomentumBreakoutStrategy
     from strategies.mean_reversion import MeanReversionStrategy
+    from strategies.quality_momentum import QualityMomentumStrategy
     from engine.portfolio import Portfolio
     from engine.risk import RiskManager
     from reports.generate_report import ReportGenerator
@@ -151,6 +152,29 @@ def run_daily_signals() -> List[Dict]:
         logger.error(f"Mean Reversion error: {e}", exc_info=True)
 
     # ---------------------------------------------------
+    # STRATEGY 4: Quality Momentum (25% allocation)
+    # ---------------------------------------------------
+    logger.info("\n[4/4] Running Quality Momentum Strategy...")
+    try:
+        qm = QualityMomentumStrategy(fetcher)
+        qm_signal = qm.generate_today_signal(start=start_date)
+
+        for ticker in qm_signal.get("selected", []):
+            score = qm_signal.get("scores", {}).get(ticker, 0)
+            all_signals.append({
+                "strategy": "quality_momentum",
+                "action": "BUY",
+                "signal": "BUY",
+                "ticker": ticker,
+                "momentum_score": round(float(score) * 100, 2) if hasattr(score, 'item') else round(score * 100, 2),
+                "signal_type": "quality_momentum",
+                "stop_loss": None,
+            })
+            logger.info(f"  → BUY {ticker} (score: {score:.1f})")
+    except Exception as e:
+        logger.error(f"Quality Momentum error: {e}", exc_info=True)
+
+    # ---------------------------------------------------
     # Execute paper trades
     # ---------------------------------------------------
     portfolio.update_days_held()
@@ -167,9 +191,10 @@ def run_daily_signals() -> List[Dict]:
     # Process entries
     total_capital = portfolio.portfolio_value({})
     strategy_capital = {
-        "dual_momentum": total_capital * 0.40,
-        "momentum_breakout": total_capital * 0.40,
-        "mean_reversion": total_capital * 0.20,
+        "dual_momentum": total_capital * 0.25,
+        "momentum_breakout": total_capital * 0.25,
+        "mean_reversion": total_capital * 0.25,
+        "quality_momentum": total_capital * 0.25,
     }
 
     for signal in buy_signals:
@@ -185,7 +210,7 @@ def run_daily_signals() -> List[Dict]:
 
         alloc = strategy_capital.get(strategy, 0)
         existing = len(portfolio.get_strategy_positions(strategy))
-        max_new = {"dual_momentum": 5, "momentum_breakout": 8, "mean_reversion": 3}[strategy]
+        max_new = {"dual_momentum": 5, "momentum_breakout": 8, "mean_reversion": 3, "quality_momentum": 20}[strategy]
         slots = max(0, max_new - existing)
 
         if slots > 0:

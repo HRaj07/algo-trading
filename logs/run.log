@@ -183,54 +183,518 @@ TypeError: NDFrame.fillna() got an unexpected keyword argument 'method'
 ✅ Daily run complete | 2 buys, 0 sells
 2026-08-07 11:10:10 | INFO     | main | Portfolio: {'cash': 859517.0, 'n_positions': 3, 'total_value': 1000000.0, 'total_return_pct': 0.0, 'positions': ['BOSCHLTD.NS', 'CHOLAFIN.NS', 'SHRIRAMFIN.NS'], 'last_updated': '2026-08-07T11:10:10.564383'}
 2026-08-07 11:10:10 | INFO     | main | ✅ Discord notification sent
-2026-08-07 22:53:30 | WARNING  | data.fetcher | nsepy not available, using yfinance only
-2026-08-07 22:53:30 | INFO     | main | ============================================================
-2026-08-07 22:53:30 | INFO     | main | AlgoTrade India | Daily Run | 2026-08-07 22:53:30
-2026-08-07 22:53:30 | INFO     | main | ============================================================
-2026-08-07 22:53:30 | INFO     | data.fetcher | DataFetcher initialized | cache: data/cache
-2026-08-07 22:53:30 | INFO     | engine.portfolio | Loaded portfolio: ₹859,517 cash, 3 positions
-2026-08-07 22:53:30 | INFO     | main | 
+2026-08-08 04:41:01 | WARNING  | data.fetcher | nsepy not available, using yfinance only
+2026-08-08 04:41:01 | INFO     | main | ============================================================
+2026-08-08 04:41:01 | INFO     | main | AlgoTrade India | Daily Run | 2026-08-08 04:41:01
+2026-08-08 04:41:01 | INFO     | main | ============================================================
+2026-08-08 04:41:01 | INFO     | data.fetcher | DataFetcher initialized | cache: data/cache
+2026-08-08 04:41:01 | INFO     | engine.portfolio | Loaded portfolio: ₹859,517 cash, 3 positions
+2026-08-08 04:41:01 | INFO     | main | 
 [1/3] Running Dual Momentum Strategy...
-2026-08-07 22:53:30 | INFO     | strategies.dual_momentum | Dual Momentum: Fetching data for today's signal...
-2026-08-07 22:53:43 | ERROR    | yfinance | HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: TATAMOTORS.NS"}}}
-2026-08-07 22:53:43 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
-2026-08-07 22:53:53 | WARNING  | data.fetcher | Failed tickers (1): ['TATAMOTORS.NS']...
-2026-08-07 22:53:53 | INFO     | data.fetcher | Fetched data for 48/49 tickers
-2026-08-07 22:53:53 | ERROR    | main | Dual Momentum error: NDFrame.fillna() got an unexpected keyword argument 'method'
-Traceback (most recent call last):
-  File "/Users/runner/work/algo-trading/algo-trading/main.py", line 80, in run_daily_signals
-    dm_signal = dm.generate_today_signal(start=start_date)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/runner/work/algo-trading/algo-trading/strategies/dual_momentum.py", line 206, in generate_today_signal
-    prices = self.fetcher.fetch_close_panel(self.tickers, start, end)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/runner/work/algo-trading/algo-trading/data/fetcher.py", line 180, in fetch_close_panel
-    return self.fetch_panel(tickers, start, end, "close")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/runner/work/algo-trading/algo-trading/data/fetcher.py", line 173, in fetch_panel
-    panel = panel.fillna(method="ffill").dropna(how="all")
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: NDFrame.fillna() got an unexpected keyword argument 'method'
-2026-08-07 22:53:53 | INFO     | main | 
+2026-08-08 04:41:01 | INFO     | strategies.dual_momentum | Dual Momentum: Fetching data for today's signal...
+2026-08-08 04:41:01 | ERROR    | yfinance | $RELIANCE.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:01 | ERROR    | yfinance | $TCS.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:01 | ERROR    | yfinance | $HDFCBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:01 | ERROR    | yfinance | $BHARTIARTL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:01 | ERROR    | yfinance | $ICICIBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:01 | ERROR    | yfinance | $INFY.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:01 | ERROR    | yfinance | $SBIN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:01 | ERROR    | yfinance | $HINDUNILVR.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:02 | ERROR    | yfinance | $ITC.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:02 | ERROR    | yfinance | $LT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:02 | ERROR    | yfinance | $KOTAKBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:02 | ERROR    | yfinance | $AXISBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:02 | ERROR    | yfinance | $BAJFINANCE.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:02 | ERROR    | yfinance | $MARUTI.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:02 | ERROR    | yfinance | $SUNPHARMA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:02 | ERROR    | yfinance | $TITAN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:02 | ERROR    | yfinance | $NESTLEIND.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:02 | ERROR    | yfinance | $ULTRACEMCO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:03 | ERROR    | yfinance | $POWERGRID.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:03 | ERROR    | yfinance | $NTPC.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:03 | ERROR    | yfinance | $WIPRO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:03 | ERROR    | yfinance | $HCLTECH.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:03 | ERROR    | yfinance | $TECHM.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:03 | ERROR    | yfinance | $INDUSINDBK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:03 | ERROR    | yfinance | $ASIANPAINT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:03 | ERROR    | yfinance | $BAJAJFINSV.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:03 | ERROR    | yfinance | $M&M.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:04 | ERROR    | yfinance | Failed to get ticker 'TATAMOTORS.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:04 | ERROR    | yfinance | HTTP Error 403: Request to GET /v10/finance/quoteSummary/TATAMOTORS.NS on query2.finance.yahoo.com not allowed by policy
+
+2026-08-08 04:41:04 | ERROR    | yfinance | HTTP Error 403: Request to GET /v7/finance/quote on query1.finance.yahoo.com not allowed by policy
+
+2026-08-08 04:41:04 | ERROR    | yfinance | $ONGC.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:04 | ERROR    | yfinance | $COALINDIA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:04 | ERROR    | yfinance | $ADANIPORTS.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:04 | ERROR    | yfinance | $BPCL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:04 | ERROR    | yfinance | $CIPLA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:04 | ERROR    | yfinance | $DRREDDY.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:04 | ERROR    | yfinance | $EICHERMOT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:04 | ERROR    | yfinance | $GRASIM.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:05 | ERROR    | yfinance | $HEROMOTOCO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:05 | ERROR    | yfinance | $HINDALCO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:05 | ERROR    | yfinance | $JSWSTEEL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:05 | ERROR    | yfinance | $BRITANNIA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:05 | ERROR    | yfinance | $APOLLOHOSP.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:05 | ERROR    | yfinance | $DIVISLAB.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:05 | ERROR    | yfinance | $SBILIFE.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:05 | ERROR    | yfinance | $HDFCLIFE.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:06 | ERROR    | yfinance | $TATACONSUM.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:06 | ERROR    | yfinance | $BAJAJ-AUTO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:06 | ERROR    | yfinance | $SHRIRAMFIN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:06 | ERROR    | yfinance | $TATASTEEL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:06 | ERROR    | yfinance | $BEL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:06 | WARNING  | data.fetcher | Failed tickers (49): ['RELIANCE.NS', 'TCS.NS', 'HDFCBANK.NS', 'BHARTIARTL.NS', 'ICICIBANK.NS', 'INFY.NS', 'SBIN.NS', 'HINDUNILVR.NS', 'ITC.NS', 'LT.NS']...
+2026-08-08 04:41:06 | INFO     | data.fetcher | Fetched data for 0/49 tickers
+2026-08-08 04:41:06 | ERROR    | yfinance | $^NSEI: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:06 | ERROR    | strategies.dual_momentum | No price data fetched
+2026-08-08 04:41:06 | INFO     | main | 
 [2/3] Running Momentum Breakout Strategy...
-2026-08-07 22:53:53 | INFO     | strategies.momentum_breakout | Momentum Breakout: Fetching data...
-2026-08-07 22:53:58 | ERROR    | yfinance | HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: TATAMOTORS.NS"}}}
-2026-08-07 22:53:58 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
-2026-08-07 22:54:18 | ERROR    | yfinance | $ZOMATO.NS: possibly delisted; no timezone found
-2026-08-07 22:54:19 | WARNING  | data.fetcher | Failed tickers (2): ['TATAMOTORS.NS', 'ZOMATO.NS']...
-2026-08-07 22:54:19 | INFO     | data.fetcher | Fetched data for 87/89 tickers
-2026-08-07 22:54:19 | INFO     | main |   → BREAKOUT BUY CHOLAFIN.NS @ ₹1940.0 | SL: ₹1826.27
-2026-08-07 22:54:19 | INFO     | main |   → BREAKOUT BUY SHRIRAMFIN.NS @ ₹1141.0 | SL: ₹1080.1
-2026-08-07 22:54:19 | INFO     | main |   Scanned: 87 | Breakouts: 2
-2026-08-07 22:54:19 | INFO     | main | 
+2026-08-08 04:41:06 | INFO     | strategies.momentum_breakout | Momentum Breakout: Fetching data...
+2026-08-08 04:41:06 | ERROR    | yfinance | $RELIANCE.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:06 | ERROR    | yfinance | $TCS.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:06 | ERROR    | yfinance | $HDFCBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:06 | ERROR    | yfinance | $BHARTIARTL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:07 | ERROR    | yfinance | $ICICIBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:07 | ERROR    | yfinance | $INFY.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:07 | ERROR    | yfinance | $SBIN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:07 | ERROR    | yfinance | $HINDUNILVR.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:07 | ERROR    | yfinance | $ITC.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:07 | ERROR    | yfinance | $LT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:07 | ERROR    | yfinance | $KOTAKBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:07 | ERROR    | yfinance | $AXISBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:07 | ERROR    | yfinance | $BAJFINANCE.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:07 | ERROR    | yfinance | $MARUTI.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:08 | ERROR    | yfinance | $SUNPHARMA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:08 | ERROR    | yfinance | $TITAN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:08 | ERROR    | yfinance | $NESTLEIND.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:08 | ERROR    | yfinance | $ULTRACEMCO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:08 | ERROR    | yfinance | $POWERGRID.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:08 | ERROR    | yfinance | $NTPC.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:08 | ERROR    | yfinance | $WIPRO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:08 | ERROR    | yfinance | $HCLTECH.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:08 | ERROR    | yfinance | $TECHM.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:09 | ERROR    | yfinance | $INDUSINDBK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:09 | ERROR    | yfinance | $ASIANPAINT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:09 | ERROR    | yfinance | $BAJAJFINSV.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:09 | ERROR    | yfinance | $M&M.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:09 | ERROR    | yfinance | Failed to get ticker 'TATAMOTORS.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:09 | ERROR    | yfinance | HTTP Error 403: Request to GET /v10/finance/quoteSummary/TATAMOTORS.NS on query2.finance.yahoo.com not allowed by policy
+
+2026-08-08 04:41:09 | ERROR    | yfinance | HTTP Error 403: Request to GET /v7/finance/quote on query1.finance.yahoo.com not allowed by policy
+
+2026-08-08 04:41:09 | ERROR    | yfinance | $ONGC.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:09 | ERROR    | yfinance | $COALINDIA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:09 | ERROR    | yfinance | $ADANIPORTS.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:09 | ERROR    | yfinance | $BPCL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:10 | ERROR    | yfinance | $CIPLA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:10 | ERROR    | yfinance | $DRREDDY.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:10 | ERROR    | yfinance | $EICHERMOT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:10 | ERROR    | yfinance | $GRASIM.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:10 | ERROR    | yfinance | $HEROMOTOCO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:10 | ERROR    | yfinance | $HINDALCO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:10 | ERROR    | yfinance | $JSWSTEEL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:10 | ERROR    | yfinance | $BRITANNIA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:10 | ERROR    | yfinance | $APOLLOHOSP.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:10 | ERROR    | yfinance | $DIVISLAB.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:11 | ERROR    | yfinance | $SBILIFE.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:11 | ERROR    | yfinance | $HDFCLIFE.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:11 | ERROR    | yfinance | $TATACONSUM.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:11 | ERROR    | yfinance | $BAJAJ-AUTO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:11 | ERROR    | yfinance | $SHRIRAMFIN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:11 | ERROR    | yfinance | $TATASTEEL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:11 | ERROR    | yfinance | $BEL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:11 | ERROR    | yfinance | $ABB.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:11 | ERROR    | yfinance | $ADANIENSOL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:12 | ERROR    | yfinance | $ADANIENT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:12 | ERROR    | yfinance | $ADANIGREEN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:12 | ERROR    | yfinance | $AMBUJACEM.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:12 | ERROR    | yfinance | $BANKBARODA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:12 | ERROR    | yfinance | $BERGEPAINT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:12 | ERROR    | yfinance | $BOSCHLTD.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:12 | ERROR    | yfinance | $CANBK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:12 | ERROR    | yfinance | $CHOLAFIN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:12 | ERROR    | yfinance | $COLPAL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:13 | ERROR    | yfinance | $DLF.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:13 | ERROR    | yfinance | $GAIL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:13 | ERROR    | yfinance | $GODREJCP.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:13 | ERROR    | yfinance | $HAVELLS.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:13 | ERROR    | yfinance | $ICICIGI.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:13 | ERROR    | yfinance | $ICICIPRULI.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:13 | ERROR    | yfinance | $INDUSTOWER.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:13 | ERROR    | yfinance | $IRCTC.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:13 | ERROR    | yfinance | $JINDALSTEL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:14 | ERROR    | yfinance | $LICI.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:14 | ERROR    | yfinance | $LUPIN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:14 | ERROR    | yfinance | $UNITDSPR.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:14 | ERROR    | yfinance | $MPHASIS.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:14 | ERROR    | yfinance | $NAUKRI.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:14 | ERROR    | yfinance | $NMDC.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:14 | ERROR    | yfinance | $OBEROIRLTY.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:14 | ERROR    | yfinance | $PERSISTENT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:14 | ERROR    | yfinance | $PETRONET.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:15 | ERROR    | yfinance | $PIIND.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:15 | ERROR    | yfinance | $PNB.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:15 | ERROR    | yfinance | $SBICARD.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:15 | ERROR    | yfinance | $SIEMENS.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:15 | ERROR    | yfinance | $TATACOMM.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:15 | ERROR    | yfinance | $TATAPOWER.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:15 | ERROR    | yfinance | $TRENT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:15 | ERROR    | yfinance | $UNIONBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:15 | ERROR    | yfinance | $VBL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:16 | ERROR    | yfinance | $VEDL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:16 | ERROR    | yfinance | Failed to get ticker 'ZOMATO.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:16 | ERROR    | yfinance | $ZOMATO.NS: possibly delisted; no timezone found
+2026-08-08 04:41:16 | ERROR    | yfinance | Failed to get ticker 'DIXON.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:16 | ERROR    | yfinance | $DIXON.NS: possibly delisted; no timezone found
+2026-08-08 04:41:16 | ERROR    | yfinance | $TRENT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:16 | ERROR    | yfinance | Failed to get ticker 'VOLTAS.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:16 | ERROR    | yfinance | $VOLTAS.NS: possibly delisted; no timezone found
+2026-08-08 04:41:16 | ERROR    | yfinance | Failed to get ticker 'MFSL.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:16 | ERROR    | yfinance | $MFSL.NS: possibly delisted; no timezone found
+2026-08-08 04:41:16 | ERROR    | yfinance | Failed to get ticker 'MAXHEALTH.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:16 | ERROR    | yfinance | $MAXHEALTH.NS: possibly delisted; no timezone found
+2026-08-08 04:41:16 | ERROR    | yfinance | Failed to get ticker 'KPITTECH.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:16 | ERROR    | yfinance | $KPITTECH.NS: possibly delisted; no timezone found
+2026-08-08 04:41:16 | ERROR    | yfinance | $PERSISTENT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:17 | ERROR    | yfinance | Failed to get ticker 'COFORGE.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:17 | ERROR    | yfinance | $COFORGE.NS: possibly delisted; no timezone found
+2026-08-08 04:41:17 | ERROR    | yfinance | Failed to get ticker 'LTTS.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:17 | ERROR    | yfinance | $LTTS.NS: possibly delisted; no timezone found
+2026-08-08 04:41:17 | ERROR    | yfinance | Failed to get ticker 'ANGELONE.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:17 | ERROR    | yfinance | $ANGELONE.NS: possibly delisted; no timezone found
+2026-08-08 04:41:17 | ERROR    | yfinance | Failed to get ticker 'CUMMINSIND.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:17 | ERROR    | yfinance | $CUMMINSIND.NS: possibly delisted; no timezone found
+2026-08-08 04:41:17 | ERROR    | yfinance | Failed to get ticker 'AIAENG.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:17 | ERROR    | yfinance | $AIAENG.NS: possibly delisted; no timezone found
+2026-08-08 04:41:17 | ERROR    | yfinance | Failed to get ticker 'TTKPRESTIG.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:17 | ERROR    | yfinance | $TTKPRESTIG.NS: possibly delisted; no timezone found
+2026-08-08 04:41:17 | ERROR    | yfinance | Failed to get ticker 'SUPREMEIND.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:17 | ERROR    | yfinance | $SUPREMEIND.NS: possibly delisted; no timezone found
+2026-08-08 04:41:17 | ERROR    | yfinance | Failed to get ticker 'BLUEDART.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:17 | ERROR    | yfinance | $BLUEDART.NS: possibly delisted; no timezone found
+2026-08-08 04:41:17 | ERROR    | yfinance | Failed to get ticker 'SUNDRMFAST.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:17 | ERROR    | yfinance | $SUNDRMFAST.NS: possibly delisted; no timezone found
+2026-08-08 04:41:17 | ERROR    | yfinance | Failed to get ticker 'KAJARIACER.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:17 | ERROR    | yfinance | $KAJARIACER.NS: possibly delisted; no timezone found
+2026-08-08 04:41:18 | ERROR    | yfinance | Failed to get ticker 'ASTRAL.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:18 | ERROR    | yfinance | $ASTRAL.NS: possibly delisted; no timezone found
+2026-08-08 04:41:18 | ERROR    | yfinance | Failed to get ticker 'POLYCAB.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:18 | ERROR    | yfinance | $POLYCAB.NS: possibly delisted; no timezone found
+2026-08-08 04:41:18 | ERROR    | yfinance | Failed to get ticker 'AAVAS.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:18 | ERROR    | yfinance | $AAVAS.NS: possibly delisted; no timezone found
+2026-08-08 04:41:18 | ERROR    | yfinance | Failed to get ticker 'CREDITACC.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:18 | ERROR    | yfinance | $CREDITACC.NS: possibly delisted; no timezone found
+2026-08-08 04:41:18 | ERROR    | yfinance | Failed to get ticker 'FIVESTAR.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:18 | ERROR    | yfinance | $FIVESTAR.NS: possibly delisted; no timezone found
+2026-08-08 04:41:18 | ERROR    | yfinance | Failed to get ticker 'JKCEMENT.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:18 | ERROR    | yfinance | $JKCEMENT.NS: possibly delisted; no timezone found
+2026-08-08 04:41:18 | ERROR    | yfinance | Failed to get ticker 'RADICO.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:18 | ERROR    | yfinance | $RADICO.NS: possibly delisted; no timezone found
+2026-08-08 04:41:18 | ERROR    | yfinance | Failed to get ticker 'MARICO.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:18 | ERROR    | yfinance | $MARICO.NS: possibly delisted; no timezone found
+2026-08-08 04:41:18 | ERROR    | yfinance | Failed to get ticker 'EMAMILTD.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:18 | ERROR    | yfinance | $EMAMILTD.NS: possibly delisted; no timezone found
+2026-08-08 04:41:19 | ERROR    | yfinance | Failed to get ticker 'PGHH.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:19 | ERROR    | yfinance | $PGHH.NS: possibly delisted; no timezone found
+2026-08-08 04:41:19 | ERROR    | yfinance | Failed to get ticker 'GILLETTE.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:19 | ERROR    | yfinance | $GILLETTE.NS: possibly delisted; no timezone found
+2026-08-08 04:41:19 | ERROR    | yfinance | Failed to get ticker 'CHAMBLFERT.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:19 | ERROR    | yfinance | $CHAMBLFERT.NS: possibly delisted; no timezone found
+2026-08-08 04:41:19 | ERROR    | yfinance | Failed to get ticker 'DEEPAKNTR.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:19 | ERROR    | yfinance | $DEEPAKNTR.NS: possibly delisted; no timezone found
+2026-08-08 04:41:19 | ERROR    | yfinance | Failed to get ticker 'GNFC.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:19 | ERROR    | yfinance | $GNFC.NS: possibly delisted; no timezone found
+2026-08-08 04:41:19 | ERROR    | yfinance | Failed to get ticker 'ATUL.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:19 | ERROR    | yfinance | $ATUL.NS: possibly delisted; no timezone found
+2026-08-08 04:41:19 | ERROR    | yfinance | Failed to get ticker 'FINEORG.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:19 | ERROR    | yfinance | $FINEORG.NS: possibly delisted; no timezone found
+2026-08-08 04:41:19 | ERROR    | yfinance | Failed to get ticker 'NAVINFLUOR.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:19 | ERROR    | yfinance | $NAVINFLUOR.NS: possibly delisted; no timezone found
+2026-08-08 04:41:19 | ERROR    | yfinance | Failed to get ticker 'SRF.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:19 | ERROR    | yfinance | $SRF.NS: possibly delisted; no timezone found
+2026-08-08 04:41:20 | ERROR    | yfinance | Failed to get ticker 'AARTIIND.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:20 | ERROR    | yfinance | $AARTIIND.NS: possibly delisted; no timezone found
+2026-08-08 04:41:20 | ERROR    | yfinance | Failed to get ticker 'CLEAN.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:20 | ERROR    | yfinance | $CLEAN.NS: possibly delisted; no timezone found
+2026-08-08 04:41:20 | ERROR    | yfinance | Failed to get ticker 'FLUOROCHEM.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:20 | ERROR    | yfinance | $FLUOROCHEM.NS: possibly delisted; no timezone found
+2026-08-08 04:41:20 | ERROR    | yfinance | Failed to get ticker 'ALKYLAMINE.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:20 | ERROR    | yfinance | $ALKYLAMINE.NS: possibly delisted; no timezone found
+2026-08-08 04:41:20 | ERROR    | yfinance | Failed to get ticker 'VINATIORGA.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:20 | ERROR    | yfinance | $VINATIORGA.NS: possibly delisted; no timezone found
+2026-08-08 04:41:20 | ERROR    | yfinance | Failed to get ticker 'SOLARINDS.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:20 | ERROR    | yfinance | $SOLARINDS.NS: possibly delisted; no timezone found
+2026-08-08 04:41:20 | ERROR    | yfinance | Failed to get ticker 'EPIGRAL.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:20 | ERROR    | yfinance | $EPIGRAL.NS: possibly delisted; no timezone found
+2026-08-08 04:41:20 | ERROR    | yfinance | Failed to get ticker 'IDFCFIRSTB.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:20 | ERROR    | yfinance | $IDFCFIRSTB.NS: possibly delisted; no timezone found
+2026-08-08 04:41:20 | ERROR    | yfinance | Failed to get ticker 'RBLBANK.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:20 | ERROR    | yfinance | $RBLBANK.NS: possibly delisted; no timezone found
+2026-08-08 04:41:21 | ERROR    | yfinance | Failed to get ticker 'BANDHANBNK.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:21 | ERROR    | yfinance | $BANDHANBNK.NS: possibly delisted; no timezone found
+2026-08-08 04:41:21 | ERROR    | yfinance | Failed to get ticker 'FEDERALBNK.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:21 | ERROR    | yfinance | $FEDERALBNK.NS: possibly delisted; no timezone found
+2026-08-08 04:41:21 | ERROR    | yfinance | Failed to get ticker 'EQUITASBNK.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:21 | ERROR    | yfinance | $EQUITASBNK.NS: possibly delisted; no timezone found
+2026-08-08 04:41:21 | ERROR    | yfinance | Failed to get ticker 'SURYAROSNI.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:21 | ERROR    | yfinance | $SURYAROSNI.NS: possibly delisted; no timezone found
+2026-08-08 04:41:21 | ERROR    | yfinance | Failed to get ticker 'CENTURYPLY.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:21 | ERROR    | yfinance | $CENTURYPLY.NS: possibly delisted; no timezone found
+2026-08-08 04:41:21 | ERROR    | yfinance | Failed to get ticker 'GREENPLY.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:21 | ERROR    | yfinance | $GREENPLY.NS: possibly delisted; no timezone found
+2026-08-08 04:41:21 | WARNING  | data.fetcher | Failed tickers (139): ['RELIANCE.NS', 'TCS.NS', 'HDFCBANK.NS', 'BHARTIARTL.NS', 'ICICIBANK.NS', 'INFY.NS', 'SBIN.NS', 'HINDUNILVR.NS', 'ITC.NS', 'LT.NS']...
+2026-08-08 04:41:21 | INFO     | data.fetcher | Fetched data for 0/139 tickers
+2026-08-08 04:41:21 | INFO     | main |   Scanned: 0 | Breakouts: 0
+2026-08-08 04:41:21 | INFO     | main | 
 [3/3] Running Mean Reversion Strategy...
-2026-08-07 22:54:19 | INFO     | strategies.mean_reversion | Mean Reversion: Fetching data...
-2026-08-07 22:54:24 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
-2026-08-07 22:54:28 | WARNING  | data.fetcher | Failed tickers (1): ['TATAMOTORS.NS']...
-2026-08-07 22:54:28 | INFO     | data.fetcher | Fetched data for 48/49 tickers
-2026-08-07 22:54:28 | INFO     | engine.risk | Portfolio: ₹1,000,000 | Return: 0.0%
-2026-08-07 22:54:28 | INFO     | reports.generate_report | Dashboard generated: reports/index.html
-2026-08-07 22:54:28 | INFO     | main | 
-✅ Daily run complete | 2 buys, 0 sells
-2026-08-07 22:54:28 | INFO     | main | Portfolio: {'cash': 859517.0, 'n_positions': 3, 'total_value': 1000000.0, 'total_return_pct': 0.0, 'positions': ['BOSCHLTD.NS', 'CHOLAFIN.NS', 'SHRIRAMFIN.NS'], 'last_updated': '2026-08-07T22:54:28.692399'}
-2026-08-07 22:54:28 | INFO     | main | ✅ Discord notification sent
+2026-08-08 04:41:21 | INFO     | strategies.mean_reversion | Mean Reversion: Fetching data...
+2026-08-08 04:41:21 | ERROR    | yfinance | $RELIANCE.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:21 | ERROR    | yfinance | $TCS.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:21 | ERROR    | yfinance | $HDFCBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:22 | ERROR    | yfinance | $BHARTIARTL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:22 | ERROR    | yfinance | $ICICIBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:22 | ERROR    | yfinance | $INFY.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:22 | ERROR    | yfinance | $SBIN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:22 | ERROR    | yfinance | $HINDUNILVR.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:22 | ERROR    | yfinance | $ITC.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:22 | ERROR    | yfinance | $LT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:22 | ERROR    | yfinance | $KOTAKBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:22 | ERROR    | yfinance | $AXISBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:23 | ERROR    | yfinance | $BAJFINANCE.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:23 | ERROR    | yfinance | $MARUTI.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:23 | ERROR    | yfinance | $SUNPHARMA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:23 | ERROR    | yfinance | $TITAN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:23 | ERROR    | yfinance | $NESTLEIND.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:23 | ERROR    | yfinance | $ULTRACEMCO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:23 | ERROR    | yfinance | $POWERGRID.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:23 | ERROR    | yfinance | $NTPC.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:23 | ERROR    | yfinance | $WIPRO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:24 | ERROR    | yfinance | $HCLTECH.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:24 | ERROR    | yfinance | $TECHM.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:24 | ERROR    | yfinance | $INDUSINDBK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:24 | ERROR    | yfinance | $ASIANPAINT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:24 | ERROR    | yfinance | $BAJAJFINSV.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:24 | ERROR    | yfinance | $M&M.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:24 | ERROR    | yfinance | Failed to get ticker 'TATAMOTORS.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:24 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
+2026-08-08 04:41:24 | ERROR    | yfinance | $ONGC.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:24 | ERROR    | yfinance | $COALINDIA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:25 | ERROR    | yfinance | $ADANIPORTS.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:25 | ERROR    | yfinance | $BPCL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:25 | ERROR    | yfinance | $CIPLA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:25 | ERROR    | yfinance | $DRREDDY.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:25 | ERROR    | yfinance | $EICHERMOT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:25 | ERROR    | yfinance | $GRASIM.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:25 | ERROR    | yfinance | $HEROMOTOCO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:25 | ERROR    | yfinance | $HINDALCO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:25 | ERROR    | yfinance | $JSWSTEEL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:26 | ERROR    | yfinance | $BRITANNIA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:26 | ERROR    | yfinance | $APOLLOHOSP.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:26 | ERROR    | yfinance | $DIVISLAB.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:26 | ERROR    | yfinance | $SBILIFE.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:26 | ERROR    | yfinance | $HDFCLIFE.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:26 | ERROR    | yfinance | $TATACONSUM.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:26 | ERROR    | yfinance | $BAJAJ-AUTO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:26 | ERROR    | yfinance | $SHRIRAMFIN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:26 | ERROR    | yfinance | $TATASTEEL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:27 | ERROR    | yfinance | $BEL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:27 | WARNING  | data.fetcher | Failed tickers (49): ['RELIANCE.NS', 'TCS.NS', 'HDFCBANK.NS', 'BHARTIARTL.NS', 'ICICIBANK.NS', 'INFY.NS', 'SBIN.NS', 'HINDUNILVR.NS', 'ITC.NS', 'LT.NS']...
+2026-08-08 04:41:27 | INFO     | data.fetcher | Fetched data for 0/49 tickers
+2026-08-08 04:41:27 | INFO     | main | 
+[4/4] Running Quality Momentum Strategy...
+2026-08-08 04:41:27 | INFO     | strategies.quality_momentum | Quality Momentum: Fetching data for today's signal...
+2026-08-08 04:41:27 | ERROR    | yfinance | $RELIANCE.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:27 | ERROR    | yfinance | $TCS.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:27 | ERROR    | yfinance | $HDFCBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:27 | ERROR    | yfinance | $BHARTIARTL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:27 | ERROR    | yfinance | $ICICIBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:27 | ERROR    | yfinance | $INFY.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:27 | ERROR    | yfinance | $SBIN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:27 | ERROR    | yfinance | $HINDUNILVR.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:28 | ERROR    | yfinance | $ITC.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:28 | ERROR    | yfinance | $LT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:28 | ERROR    | yfinance | $KOTAKBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:28 | ERROR    | yfinance | $AXISBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:28 | ERROR    | yfinance | $BAJFINANCE.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:28 | ERROR    | yfinance | $MARUTI.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:28 | ERROR    | yfinance | $SUNPHARMA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:28 | ERROR    | yfinance | $TITAN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:28 | ERROR    | yfinance | $NESTLEIND.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:28 | ERROR    | yfinance | $ULTRACEMCO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:29 | ERROR    | yfinance | $POWERGRID.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:29 | ERROR    | yfinance | $NTPC.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:29 | ERROR    | yfinance | $WIPRO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:29 | ERROR    | yfinance | $HCLTECH.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:29 | ERROR    | yfinance | $TECHM.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:29 | ERROR    | yfinance | $INDUSINDBK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:29 | ERROR    | yfinance | $ASIANPAINT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:29 | ERROR    | yfinance | $BAJAJFINSV.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:29 | ERROR    | yfinance | $M&M.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:30 | ERROR    | yfinance | Failed to get ticker 'TATAMOTORS.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:30 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
+2026-08-08 04:41:30 | ERROR    | yfinance | $ONGC.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:30 | ERROR    | yfinance | $COALINDIA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:30 | ERROR    | yfinance | $ADANIPORTS.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:30 | ERROR    | yfinance | $BPCL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:30 | ERROR    | yfinance | $CIPLA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:30 | ERROR    | yfinance | $DRREDDY.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:30 | ERROR    | yfinance | $EICHERMOT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:30 | ERROR    | yfinance | $GRASIM.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:30 | ERROR    | yfinance | $HEROMOTOCO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:31 | ERROR    | yfinance | $HINDALCO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:31 | ERROR    | yfinance | $JSWSTEEL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:31 | ERROR    | yfinance | $BRITANNIA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:31 | ERROR    | yfinance | $APOLLOHOSP.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:31 | ERROR    | yfinance | $DIVISLAB.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:31 | ERROR    | yfinance | $SBILIFE.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:31 | ERROR    | yfinance | $HDFCLIFE.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:31 | ERROR    | yfinance | $TATACONSUM.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:31 | ERROR    | yfinance | $BAJAJ-AUTO.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:32 | ERROR    | yfinance | $SHRIRAMFIN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:32 | ERROR    | yfinance | $TATASTEEL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:32 | ERROR    | yfinance | $BEL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:32 | ERROR    | yfinance | $ABB.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:32 | ERROR    | yfinance | $ADANIENSOL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:32 | ERROR    | yfinance | $ADANIENT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:32 | ERROR    | yfinance | $ADANIGREEN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:32 | ERROR    | yfinance | $AMBUJACEM.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:32 | ERROR    | yfinance | $BANKBARODA.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:33 | ERROR    | yfinance | $BERGEPAINT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:33 | ERROR    | yfinance | $BOSCHLTD.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:33 | ERROR    | yfinance | $CANBK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:33 | ERROR    | yfinance | $CHOLAFIN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:33 | ERROR    | yfinance | $COLPAL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:33 | ERROR    | yfinance | $DLF.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:33 | ERROR    | yfinance | $GAIL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:33 | ERROR    | yfinance | $GODREJCP.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:33 | ERROR    | yfinance | $HAVELLS.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:34 | ERROR    | yfinance | $ICICIGI.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:34 | ERROR    | yfinance | $ICICIPRULI.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:34 | ERROR    | yfinance | $INDUSTOWER.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:34 | ERROR    | yfinance | $IRCTC.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:34 | ERROR    | yfinance | $JINDALSTEL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:34 | ERROR    | yfinance | $LICI.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:34 | ERROR    | yfinance | $LUPIN.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:34 | ERROR    | yfinance | $UNITDSPR.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:34 | ERROR    | yfinance | $MPHASIS.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:35 | ERROR    | yfinance | $NAUKRI.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:35 | ERROR    | yfinance | $NMDC.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:35 | ERROR    | yfinance | $OBEROIRLTY.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:35 | ERROR    | yfinance | $PERSISTENT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:35 | ERROR    | yfinance | $PETRONET.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:35 | ERROR    | yfinance | $PIIND.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:35 | ERROR    | yfinance | $PNB.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:35 | ERROR    | yfinance | $SBICARD.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:35 | ERROR    | yfinance | $SIEMENS.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:36 | ERROR    | yfinance | $TATACOMM.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:36 | ERROR    | yfinance | $TATAPOWER.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:36 | ERROR    | yfinance | $TRENT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:36 | ERROR    | yfinance | $UNIONBANK.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:36 | ERROR    | yfinance | $VBL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:36 | ERROR    | yfinance | $VEDL.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:36 | ERROR    | yfinance | Failed to get ticker 'ZOMATO.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:36 | ERROR    | yfinance | $ZOMATO.NS: possibly delisted; no timezone found
+2026-08-08 04:41:36 | ERROR    | yfinance | Failed to get ticker 'DIXON.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:36 | ERROR    | yfinance | $DIXON.NS: possibly delisted; no timezone found
+2026-08-08 04:41:36 | ERROR    | yfinance | $TRENT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:37 | ERROR    | yfinance | Failed to get ticker 'VOLTAS.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:37 | ERROR    | yfinance | $VOLTAS.NS: possibly delisted; no timezone found
+2026-08-08 04:41:37 | ERROR    | yfinance | Failed to get ticker 'MFSL.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:37 | ERROR    | yfinance | $MFSL.NS: possibly delisted; no timezone found
+2026-08-08 04:41:37 | ERROR    | yfinance | Failed to get ticker 'MAXHEALTH.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:37 | ERROR    | yfinance | $MAXHEALTH.NS: possibly delisted; no timezone found
+2026-08-08 04:41:37 | ERROR    | yfinance | Failed to get ticker 'KPITTECH.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:37 | ERROR    | yfinance | $KPITTECH.NS: possibly delisted; no timezone found
+2026-08-08 04:41:37 | ERROR    | yfinance | $PERSISTENT.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-08-08)
+2026-08-08 04:41:37 | ERROR    | yfinance | Failed to get ticker 'COFORGE.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:37 | ERROR    | yfinance | $COFORGE.NS: possibly delisted; no timezone found
+2026-08-08 04:41:37 | ERROR    | yfinance | Failed to get ticker 'LTTS.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:37 | ERROR    | yfinance | $LTTS.NS: possibly delisted; no timezone found
+2026-08-08 04:41:37 | ERROR    | yfinance | Failed to get ticker 'ANGELONE.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:37 | ERROR    | yfinance | $ANGELONE.NS: possibly delisted; no timezone found
+2026-08-08 04:41:37 | ERROR    | yfinance | Failed to get ticker 'CUMMINSIND.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:37 | ERROR    | yfinance | $CUMMINSIND.NS: possibly delisted; no timezone found
+2026-08-08 04:41:38 | ERROR    | yfinance | Failed to get ticker 'AIAENG.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:38 | ERROR    | yfinance | $AIAENG.NS: possibly delisted; no timezone found
+2026-08-08 04:41:38 | ERROR    | yfinance | Failed to get ticker 'TTKPRESTIG.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:38 | ERROR    | yfinance | $TTKPRESTIG.NS: possibly delisted; no timezone found
+2026-08-08 04:41:38 | ERROR    | yfinance | Failed to get ticker 'SUPREMEIND.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:38 | ERROR    | yfinance | $SUPREMEIND.NS: possibly delisted; no timezone found
+2026-08-08 04:41:38 | ERROR    | yfinance | Failed to get ticker 'BLUEDART.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:38 | ERROR    | yfinance | $BLUEDART.NS: possibly delisted; no timezone found
+2026-08-08 04:41:38 | ERROR    | yfinance | Failed to get ticker 'SUNDRMFAST.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:38 | ERROR    | yfinance | $SUNDRMFAST.NS: possibly delisted; no timezone found
+2026-08-08 04:41:38 | ERROR    | yfinance | Failed to get ticker 'KAJARIACER.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:38 | ERROR    | yfinance | $KAJARIACER.NS: possibly delisted; no timezone found
+2026-08-08 04:41:38 | ERROR    | yfinance | Failed to get ticker 'ASTRAL.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:38 | ERROR    | yfinance | $ASTRAL.NS: possibly delisted; no timezone found
+2026-08-08 04:41:38 | ERROR    | yfinance | Failed to get ticker 'POLYCAB.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:38 | ERROR    | yfinance | $POLYCAB.NS: possibly delisted; no timezone found
+2026-08-08 04:41:38 | ERROR    | yfinance | Failed to get ticker 'AAVAS.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:38 | ERROR    | yfinance | $AAVAS.NS: possibly delisted; no timezone found
+2026-08-08 04:41:39 | ERROR    | yfinance | Failed to get ticker 'CREDITACC.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:39 | ERROR    | yfinance | $CREDITACC.NS: possibly delisted; no timezone found
+2026-08-08 04:41:39 | ERROR    | yfinance | Failed to get ticker 'FIVESTAR.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:39 | ERROR    | yfinance | $FIVESTAR.NS: possibly delisted; no timezone found
+2026-08-08 04:41:39 | ERROR    | yfinance | Failed to get ticker 'JKCEMENT.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:39 | ERROR    | yfinance | $JKCEMENT.NS: possibly delisted; no timezone found
+2026-08-08 04:41:39 | ERROR    | yfinance | Failed to get ticker 'RADICO.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:39 | ERROR    | yfinance | $RADICO.NS: possibly delisted; no timezone found
+2026-08-08 04:41:39 | ERROR    | yfinance | Failed to get ticker 'MARICO.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:39 | ERROR    | yfinance | $MARICO.NS: possibly delisted; no timezone found
+2026-08-08 04:41:39 | ERROR    | yfinance | Failed to get ticker 'EMAMILTD.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:39 | ERROR    | yfinance | $EMAMILTD.NS: possibly delisted; no timezone found
+2026-08-08 04:41:39 | ERROR    | yfinance | Failed to get ticker 'PGHH.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:39 | ERROR    | yfinance | $PGHH.NS: possibly delisted; no timezone found
+2026-08-08 04:41:39 | ERROR    | yfinance | Failed to get ticker 'GILLETTE.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:39 | ERROR    | yfinance | $GILLETTE.NS: possibly delisted; no timezone found
+2026-08-08 04:41:39 | ERROR    | yfinance | Failed to get ticker 'CHAMBLFERT.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:39 | ERROR    | yfinance | $CHAMBLFERT.NS: possibly delisted; no timezone found
+2026-08-08 04:41:40 | ERROR    | yfinance | Failed to get ticker 'DEEPAKNTR.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:40 | ERROR    | yfinance | $DEEPAKNTR.NS: possibly delisted; no timezone found
+2026-08-08 04:41:40 | ERROR    | yfinance | Failed to get ticker 'GNFC.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:40 | ERROR    | yfinance | $GNFC.NS: possibly delisted; no timezone found
+2026-08-08 04:41:40 | ERROR    | yfinance | Failed to get ticker 'ATUL.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:40 | ERROR    | yfinance | $ATUL.NS: possibly delisted; no timezone found
+2026-08-08 04:41:40 | ERROR    | yfinance | Failed to get ticker 'FINEORG.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:40 | ERROR    | yfinance | $FINEORG.NS: possibly delisted; no timezone found
+2026-08-08 04:41:40 | ERROR    | yfinance | Failed to get ticker 'NAVINFLUOR.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:40 | ERROR    | yfinance | $NAVINFLUOR.NS: possibly delisted; no timezone found
+2026-08-08 04:41:40 | ERROR    | yfinance | Failed to get ticker 'SRF.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:40 | ERROR    | yfinance | $SRF.NS: possibly delisted; no timezone found
+2026-08-08 04:41:40 | ERROR    | yfinance | Failed to get ticker 'AARTIIND.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:40 | ERROR    | yfinance | $AARTIIND.NS: possibly delisted; no timezone found
+2026-08-08 04:41:40 | ERROR    | yfinance | Failed to get ticker 'CLEAN.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:40 | ERROR    | yfinance | $CLEAN.NS: possibly delisted; no timezone found
+2026-08-08 04:41:40 | ERROR    | yfinance | Failed to get ticker 'FLUOROCHEM.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:40 | ERROR    | yfinance | $FLUOROCHEM.NS: possibly delisted; no timezone found
+2026-08-08 04:41:41 | ERROR    | yfinance | Failed to get ticker 'ALKYLAMINE.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:41 | ERROR    | yfinance | $ALKYLAMINE.NS: possibly delisted; no timezone found
+2026-08-08 04:41:41 | ERROR    | yfinance | Failed to get ticker 'VINATIORGA.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:41 | ERROR    | yfinance | $VINATIORGA.NS: possibly delisted; no timezone found
+2026-08-08 04:41:41 | ERROR    | yfinance | Failed to get ticker 'SOLARINDS.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:41 | ERROR    | yfinance | $SOLARINDS.NS: possibly delisted; no timezone found
+2026-08-08 04:41:41 | ERROR    | yfinance | Failed to get ticker 'EPIGRAL.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:41 | ERROR    | yfinance | $EPIGRAL.NS: possibly delisted; no timezone found
+2026-08-08 04:41:41 | ERROR    | yfinance | Failed to get ticker 'IDFCFIRSTB.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:41 | ERROR    | yfinance | $IDFCFIRSTB.NS: possibly delisted; no timezone found
+2026-08-08 04:41:41 | ERROR    | yfinance | Failed to get ticker 'RBLBANK.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:41 | ERROR    | yfinance | $RBLBANK.NS: possibly delisted; no timezone found
+2026-08-08 04:41:41 | ERROR    | yfinance | Failed to get ticker 'BANDHANBNK.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:41 | ERROR    | yfinance | $BANDHANBNK.NS: possibly delisted; no timezone found
+2026-08-08 04:41:41 | ERROR    | yfinance | Failed to get ticker 'FEDERALBNK.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:41 | ERROR    | yfinance | $FEDERALBNK.NS: possibly delisted; no timezone found
+2026-08-08 04:41:41 | ERROR    | yfinance | Failed to get ticker 'EQUITASBNK.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:41 | ERROR    | yfinance | $EQUITASBNK.NS: possibly delisted; no timezone found
+2026-08-08 04:41:42 | ERROR    | yfinance | Failed to get ticker 'SURYAROSNI.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:42 | ERROR    | yfinance | $SURYAROSNI.NS: possibly delisted; no timezone found
+2026-08-08 04:41:42 | ERROR    | yfinance | Failed to get ticker 'CENTURYPLY.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:42 | ERROR    | yfinance | $CENTURYPLY.NS: possibly delisted; no timezone found
+2026-08-08 04:41:42 | ERROR    | yfinance | Failed to get ticker 'GREENPLY.NS' reason: unexpected character: line 1 column 1 (char 0)
+2026-08-08 04:41:42 | ERROR    | yfinance | $GREENPLY.NS: possibly delisted; no timezone found
+2026-08-08 04:41:42 | WARNING  | data.fetcher | Failed tickers (139): ['RELIANCE.NS', 'TCS.NS', 'HDFCBANK.NS', 'BHARTIARTL.NS', 'ICICIBANK.NS', 'INFY.NS', 'SBIN.NS', 'HINDUNILVR.NS', 'ITC.NS', 'LT.NS']...
+2026-08-08 04:41:42 | INFO     | data.fetcher | Fetched data for 0/139 tickers
+2026-08-08 04:41:42 | ERROR    | strategies.quality_momentum | No price data fetched for Quality Momentum
+2026-08-08 04:41:42 | INFO     | engine.risk | Portfolio: ₹1,000,000 | Return: 0.0%

@@ -92,7 +92,15 @@ class MomentumBreakoutStrategy:
             sma_200 = self.ti.sma(close, self.params["trend_filter_sma"]).iloc[-1]
             trend_ok = current > sma_200
 
-            if not (volume_ok and trend_ok):
+            # Supertrend filter: must be in bullish regime
+            supertrend_dir = self.ti.supertrend(df, self.params.get("supertrend_period", 10), self.params.get("supertrend_mult", 3.0))
+            supertrend_ok = supertrend_dir.iloc[-1] == 1  # Bullish
+
+            # ADX filter: trend must be strong
+            adx_val = self.ti.adx(df, self.params.get("adx_period", 14)).iloc[-1]
+            adx_ok = adx_val >= self.params.get("adx_threshold", 25)
+
+            if not (volume_ok and trend_ok and supertrend_ok and adx_ok):
                 return None
 
             # ATR-based stop loss
@@ -114,6 +122,8 @@ class MomentumBreakoutStrategy:
                 "stop_loss": round(stop_loss, 2),
                 "stop_pct": round(stop_pct, 4),
                 "sma_200": round(sma_200, 2),
+                "supertrend_direction": int(supertrend_dir.iloc[-1]),
+                "adx_value": round(adx_val, 1),
                 "signal_type": "momentum_breakout",
             }
 

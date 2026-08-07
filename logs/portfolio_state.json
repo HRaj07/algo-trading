@@ -55,7 +55,7 @@
       "strategy": "momentum_breakout"
     }
   ],
-  "last_updated": "2026-08-07T22:54:28.692399",
+  "last_updated": "2026-08-08T04:41:42.382829",
   "strategy_allocations": {
     "dual_momentum": 0.0,
     "momentum_breakout": 0.0,

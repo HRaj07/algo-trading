@@ -15,7 +15,7 @@ import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-from config import NIFTY50_TICKERS, NIFTY_NEXT50_TICKERS, PORTFOLIO, DUAL_MOMENTUM, MOMENTUM_BREAKOUT, MEAN_REVERSION
+from config import NIFTY50_TICKERS, NIFTY_NEXT50_TICKERS, NIFTY_MIDCAP150_TICKERS, PORTFOLIO, DUAL_MOMENTUM, MOMENTUM_BREAKOUT, MEAN_REVERSION, QUALITY_MOMENTUM
 from data.fetcher import DataFetcher, TechnicalIndicators
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)-7s | %(message)s")
@@ -262,6 +262,53 @@ def run_mean_reversion_sim(data_dict: dict, start_date: str, initial_capital: fl
     return pd.Series(portfolio_values, index=test_dates)
 
 
+
+def run_quality_momentum_sim(prices: pd.DataFrame, start_date: str, initial_capital: float = 250_000, top_n: int = 20) -> pd.Series:
+    """Run Quality+Momentum simulation over the test period."""
+    lookback = 252
+    skip = 21
+    trading_days = prices.loc[start_date:].index
+    capital = initial_capital
+    portfolio_values = []
+    month_starts = trading_days[trading_days.to_series().apply(
+        lambda d: d == trading_days[(trading_days.month == d.month) & (trading_days.year == d.year)][0]
+    )]
+
+    current_tickers = []
+    for i, date in enumerate(trading_days):
+        loc_idx = prices.index.get_loc(date)
+        if loc_idx < lookback:
+            portfolio_values.append(capital)
+            continue
+
+        if date in month_starts or i == 0:
+            price_slice = prices.iloc[:loc_idx + 1]
+            past = price_slice.iloc[-lookback]
+            recent = price_slice.iloc[-(skip+1)] if len(price_slice) > skip else price_slice.iloc[-1]
+            momentum = (recent / past) - 1
+            mom_rank = momentum.rank(pct=True)
+            
+            returns_20d = price_slice.iloc[-21:].pct_change().dropna()
+            volatility = returns_20d.std() * np.sqrt(252)
+            qual_rank = (1 / volatility.replace(0, np.nan)).rank(pct=True)
+            
+            combined_score = (0.6 * mom_rank + 0.4 * qual_rank).dropna().sort_values(ascending=False)
+            current_tickers = combined_score.head(top_n).index.tolist()
+
+        if current_tickers and i > 0:
+            prev_date = trading_days[i - 1]
+            daily_ret = sum(
+                (1 / len(current_tickers)) * (prices.loc[date, t] / prices.loc[prev_date, t] - 1)
+                for t in current_tickers if t in prices.columns and prices.loc[prev_date, t] > 0
+            )
+            if date in month_starts:
+                daily_ret -= 0.0015
+            capital *= (1 + daily_ret)
+
+        portfolio_values.append(capital)
+
+    return pd.Series(portfolio_values, index=trading_days)
+
 def main():
     start_fetch = "2022-01-01"  # Extra year for indicator warm-ups (200 SMA, 52W High, 12M Momentum)
     test_start = "2023-08-01"   # Exact 3-year testing window
@@ -273,11 +320,11 @@ def main():
     logger.info(f"Test Period : {test_start} to {end_date} (3 Years)")
     logger.info(f"Universe    : Nifty 50 + Nifty Next 50")
     logger.info(f"Benchmark   : Nifty 50 Index (^NSEI)")
-    logger.info(f"Capital     : ₹1,000,000 (Dual Mom 40%, Breakout 40%, Mean Rev 20%)")
+    logger.info(f"Capital     : ₹1,000,000 (Dual Mom 25%, Breakout 25%, Mean Rev 25%, Qual Mom 25%)")
     logger.info("-" * 70)
 
     fetcher = DataFetcher(cache_expiry_hours=24)
-    universe = list(dict.fromkeys(NIFTY50_TICKERS + NIFTY_NEXT50_TICKERS))
+    universe = list(dict.fromkeys(NIFTY50_TICKERS + NIFTY_NEXT50_TICKERS + NIFTY_MIDCAP150_TICKERS))
     
     logger.info(f"Fetching historical OHLCV data for {len(universe)} tickers...")
     data_dict = fetcher.fetch_ohlcv(universe, start=start_fetch, end=end_date)
@@ -291,22 +338,27 @@ def main():
 
     # 1. Dual Momentum Simulation (₹400,000)
     logger.info("\n[1/3] Simulating Dual Momentum Strategy...")
-    dm_pv = run_dual_momentum_sim(close_panel, bench_data, start_date=test_start, initial_capital=400_000)
+    dm_pv = run_dual_momentum_sim(close_panel, bench_data, start_date=test_start, initial_capital=250_000)
     dm_metrics = calculate_metrics(dm_pv, bench_test)
 
     # 2. Breakout Simulation (₹400,000)
     logger.info("[2/3] Simulating 52-Week High Breakout Strategy...")
-    bo_pv = run_breakout_sim(data_dict, start_date=test_start, initial_capital=400_000)
+    bo_pv = run_breakout_sim(data_dict, start_date=test_start, initial_capital=250_000)
     bo_metrics = calculate_metrics(bo_pv, bench_test)
 
     # 3. Mean Reversion Simulation (₹200,000)
     logger.info("[3/3] Simulating RSI Mean Reversion Strategy...")
-    mr_pv = run_mean_reversion_sim(data_dict, start_date=test_start, initial_capital=200_000)
+    mr_pv = run_mean_reversion_sim(data_dict, start_date=test_start, initial_capital=250_000)
     mr_metrics = calculate_metrics(mr_pv, bench_test)
 
-    # 4. Combined Multi-Strategy Portfolio (₹1,000,000)
-    common_idx = dm_pv.index.intersection(bo_pv.index).intersection(mr_pv.index)
-    combined_pv = dm_pv.loc[common_idx] + bo_pv.loc[common_idx] + mr_pv.loc[common_idx]
+        # 4. Quality Momentum Simulation (₹250,000)
+    logger.info("[4/4] Simulating Quality Momentum Strategy...")
+    qm_pv = run_quality_momentum_sim(close_panel, start_date=test_start, initial_capital=250_000)
+    qm_metrics = calculate_metrics(qm_pv, bench_test)
+
+    # 5. Combined Multi-Strategy Portfolio (₹1,000,000)
+    common_idx = dm_pv.index.intersection(bo_pv.index).intersection(mr_pv.index).intersection(qm_pv.index)
+    combined_pv = dm_pv.loc[common_idx] + bo_pv.loc[common_idx] + mr_pv.loc[common_idx] + qm_pv.loc[common_idx]
     bench_aligned = bench_test.reindex(common_idx).ffill().bfill()
     comb_metrics = calculate_metrics(combined_pv, bench_aligned)
 
@@ -314,19 +366,19 @@ def main():
     print("\n" + "=" * 78)
     print("📊  3-YEAR BACKTEST PERFORMANCE RESULTS (Aug 2023 - Aug 2026)")
     print("=" * 78)
-    headers = f"{'Metric':<25} | {'Combined Portfolio':<18} | {'Dual Mom':<10} | {'Breakout':<10} | {'Mean Rev':<10} | {'Nifty 50':<10}"
+    headers = f"{'Metric':<25} | {'Combined Portfolio':<18} | {'Dual Mom':<10} | {'Breakout':<10} | {'Mean Rev':<10} | {'Qual Mom':<10} | {'Nifty 50':<10}"
     print(headers)
     print("-" * 78)
 
-    print(f"{'Initial Capital':<25} | ₹{comb_metrics['initial_capital']:>15,.0f} | ₹{dm_metrics['initial_capital']:>8,.0f} | ₹{bo_metrics['initial_capital']:>8,.0f} | ₹{mr_metrics['initial_capital']:>8,.0f} | {'-':>10}")
-    print(f"{'Final Value':<25} | ₹{comb_metrics['final_value']:>15,.0f} | ₹{dm_metrics['final_value']:>8,.0f} | ₹{bo_metrics['final_value']:>8,.0f} | ₹{mr_metrics['final_value']:>8,.0f} | {'-':>10}")
-    print(f"{'Total Return':<25} | {comb_metrics['total_return_pct']:>16.2f}% | {dm_metrics['total_return_pct']:>9.2f}% | {bo_metrics['total_return_pct']:>9.2f}% | {mr_metrics['total_return_pct']:>9.2f}% | {comb_metrics['benchmark_total_pct']:>9.2f}%")
-    print(f"{'CAGR (Annualized)':<25} | {comb_metrics['cagr_pct']:>16.2f}% | {dm_metrics['cagr_pct']:>9.2f}% | {bo_metrics['cagr_pct']:>9.2f}% | {mr_metrics['cagr_pct']:>9.2f}% | {comb_metrics['benchmark_cagr_pct']:>9.2f}%")
-    print(f"{'Sharpe Ratio':<25} | {comb_metrics['sharpe_ratio']:>17.2f} | {dm_metrics['sharpe_ratio']:>10.2f} | {bo_metrics['sharpe_ratio']:>10.2f} | {mr_metrics['sharpe_ratio']:>10.2f} | {'1.05':>10}")
-    print(f"{'Sortino Ratio':<25} | {comb_metrics['sortino_ratio']:>17.2f} | {dm_metrics['sortino_ratio']:>10.2f} | {bo_metrics['sortino_ratio']:>10.2f} | {mr_metrics['sortino_ratio']:>10.2f} | {'1.32':>10}")
-    print(f"{'Max Drawdown':<25} | {comb_metrics['max_drawdown_pct']:>16.2f}% | {dm_metrics['max_drawdown_pct']:>9.2f}% | {bo_metrics['max_drawdown_pct']:>9.2f}% | {mr_metrics['max_drawdown_pct']:>9.2f}% | {'-14.80%':>10}")
-    print(f"{'Alpha vs Nifty':<25} | {comb_metrics['alpha_pct']:>+16.2f}% | {dm_metrics['alpha_pct']:>+9.2f}% | {bo_metrics['alpha_pct']:>+9.2f}% | {mr_metrics['alpha_pct']:>+9.2f}% | {'0.00%':>10}")
-    print(f"{'Beta vs Nifty':<25} | {comb_metrics['beta']:>17.2f} | {dm_metrics['beta']:>10.2f} | {bo_metrics['beta']:>10.2f} | {mr_metrics['beta']:>10.2f} | {'1.00':>10}")
+    print(f"{'Initial Capital':<25} | ₹{comb_metrics['initial_capital']:>15,.0f} | ₹{dm_metrics['initial_capital']:>8,.0f} | ₹{bo_metrics['initial_capital']:>8,.0f} | ₹{mr_metrics['initial_capital']:>8,.0f} | ₹{qm_metrics['initial_capital']:>8,.0f} | {'-':>10}")
+    print(f"{'Final Value':<25} | ₹{comb_metrics['final_value']:>15,.0f} | ₹{dm_metrics['final_value']:>8,.0f} | ₹{bo_metrics['final_value']:>8,.0f} | ₹{mr_metrics['final_value']:>8,.0f} | ₹{qm_metrics['final_value']:>8,.0f} | {'-':>10}")
+    print(f"{'Total Return':<25} | {comb_metrics['total_return_pct']:>16.2f}% | {dm_metrics['total_return_pct']:>9.2f}% | {bo_metrics['total_return_pct']:>9.2f}% | {mr_metrics['total_return_pct']:>9.2f}% | {qm_metrics['total_return_pct']:>9.2f}% | {comb_metrics['benchmark_total_pct']:>9.2f}%")
+    print(f"{'CAGR (Annualized)':<25} | {comb_metrics['cagr_pct']:>16.2f}% | {dm_metrics['cagr_pct']:>9.2f}% | {bo_metrics['cagr_pct']:>9.2f}% | {mr_metrics['cagr_pct']:>9.2f}% | {qm_metrics['cagr_pct']:>9.2f}% | {comb_metrics['benchmark_cagr_pct']:>9.2f}%")
+    print(f"{'Sharpe Ratio':<25} | {comb_metrics['sharpe_ratio']:>17.2f} | {dm_metrics['sharpe_ratio']:>10.2f} | {bo_metrics['sharpe_ratio']:>10.2f} | {mr_metrics['sharpe_ratio']:>10.2f} | {qm_metrics['sharpe_ratio']:>10.2f} | {'1.05':>10}")
+    print(f"{'Sortino Ratio':<25} | {comb_metrics['sortino_ratio']:>17.2f} | {dm_metrics['sortino_ratio']:>10.2f} | {bo_metrics['sortino_ratio']:>10.2f} | {mr_metrics['sortino_ratio']:>10.2f} | {qm_metrics['sortino_ratio']:>10.2f} | {'1.32':>10}")
+    print(f"{'Max Drawdown':<25} | {comb_metrics['max_drawdown_pct']:>16.2f}% | {dm_metrics['max_drawdown_pct']:>9.2f}% | {bo_metrics['max_drawdown_pct']:>9.2f}% | {mr_metrics['max_drawdown_pct']:>9.2f}% | {qm_metrics['max_drawdown_pct']:>9.2f}% | {'-14.80%':>10}")
+    print(f"{'Alpha vs Nifty':<25} | {comb_metrics['alpha_pct']:>+16.2f}% | {dm_metrics['alpha_pct']:>+9.2f}% | {bo_metrics['alpha_pct']:>+9.2f}% | {mr_metrics['alpha_pct']:>+9.2f}% | {qm_metrics['alpha_pct']:>+9.2f}% | {'0.00%':>10}")
+    print(f"{'Beta vs Nifty':<25} | {comb_metrics['beta']:>17.2f} | {dm_metrics['beta']:>10.2f} | {bo_metrics['beta']:>10.2f} | {mr_metrics['beta']:>10.2f} | {qm_metrics['beta']:>10.2f} | {'1.00':>10}")
     print("=" * 78)
 
     print("\n📅 Yearly Returns Breakdown:")
@@ -347,8 +399,9 @@ def main():
 
     fig.add_trace(go.Scatter(x=common_idx, y=combined_pv, mode="lines", name="Algo Combined Portfolio (₹)", line=dict(color="#00d4ff", width=2.5)), row=1, col=1)
     fig.add_trace(go.Scatter(x=common_idx, y=bench_norm, mode="lines", name="Nifty 50 Benchmark (₹)", line=dict(color="#ffa500", width=1.8, dash="dot")), row=1, col=1)
-    fig.add_trace(go.Scatter(x=common_idx, y=dm_pv.loc[common_idx] * 2.5, mode="lines", name="Dual Momentum (scaled)", line=dict(color="#00e676", width=1.2)), row=1, col=1)
-    fig.add_trace(go.Scatter(x=common_idx, y=bo_pv.loc[common_idx] * 2.5, mode="lines", name="Breakout (scaled)", line=dict(color="#ab47bc", width=1.2)), row=1, col=1)
+    fig.add_trace(go.Scatter(x=common_idx, y=dm_pv.loc[common_idx] * 4.0, mode="lines", name="Dual Momentum (scaled)", line=dict(color="#00e676", width=1.2)), row=1, col=1)
+    fig.add_trace(go.Scatter(x=common_idx, y=bo_pv.loc[common_idx] * 4.0, mode="lines", name="Breakout (scaled)", line=dict(color="#ab47bc", width=1.2)), row=1, col=1)
+    fig.add_trace(go.Scatter(x=common_idx, y=qm_pv.loc[common_idx] * 4.0, mode="lines", name="Quality Momentum (scaled)", line=dict(color="#ffeb3b", width=1.2)), row=1, col=1)
 
     dd_pct = comb_metrics["drawdown_series"].loc[common_idx] * 100
     fig.add_trace(go.Scatter(x=common_idx, y=dd_pct, mode="lines", fill="tozeroy", name="Portfolio Drawdown %", line=dict(color="#ff5252", width=1.2), fillcolor="rgba(255,82,82,0.2)"), row=2, col=1)
@@ -373,6 +426,7 @@ def main():
         "dual_momentum": {k: v for k, v in dm_metrics.items() if not isinstance(v, (pd.Series, pd.DataFrame))},
         "breakout": {k: v for k, v in bo_metrics.items() if not isinstance(v, (pd.Series, pd.DataFrame))},
         "mean_reversion": {k: v for k, v in mr_metrics.items() if not isinstance(v, (pd.Series, pd.DataFrame))},
+        "quality_momentum": {k: v for k, v in qm_metrics.items() if not isinstance(v, (pd.Series, pd.DataFrame))},
     }
     with open("backtest_results/3yr_summary.json", "w") as f:
         json.dump(summary_out, f, indent=2)

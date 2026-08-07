@@ -56,16 +56,30 @@ NIFTY_NEXT50_TICKERS = [
     "TRENT.NS", "UNIONBANK.NS", "VBL.NS", "VEDL.NS", "ZOMATO.NS",
 ]
 
-ALL_TICKERS = NIFTY50_TICKERS + NIFTY_NEXT50_TICKERS
+NIFTY_MIDCAP150_TICKERS = [
+    "DIXON.NS", "TRENT.NS", "VOLTAS.NS", "MFSL.NS", "MAXHEALTH.NS",
+    "KPITTECH.NS", "PERSISTENT.NS", "COFORGE.NS", "LTTS.NS", "ANGELONE.NS",
+    "CUMMINSIND.NS", "AIAENG.NS", "TTKPRESTIG.NS", "SUPREMEIND.NS", "BLUEDART.NS",
+    "SUNDRMFAST.NS", "KAJARIACER.NS", "ASTRAL.NS", "POLYCAB.NS", "AAVAS.NS",
+    "CREDITACC.NS", "FIVESTAR.NS", "JKCEMENT.NS", "RADICO.NS", "MARICO.NS",
+    "EMAMILTD.NS", "PGHH.NS", "GILLETTE.NS", "CHAMBLFERT.NS", "DEEPAKNTR.NS",
+    "GNFC.NS", "ATUL.NS", "FINEORG.NS", "NAVINFLUOR.NS", "SRF.NS",
+    "AARTIIND.NS", "CLEAN.NS", "FLUOROCHEM.NS", "ALKYLAMINE.NS", "VINATIORGA.NS",
+    "SOLARINDS.NS", "EPIGRAL.NS", "IDFCFIRSTB.NS", "RBLBANK.NS", "BANDHANBNK.NS",
+    "FEDERALBNK.NS", "EQUITASBNK.NS", "SURYAROSNI.NS", "CENTURYPLY.NS", "GREENPLY.NS",
+]
+
+ALL_TICKERS = NIFTY50_TICKERS + NIFTY_NEXT50_TICKERS + NIFTY_MIDCAP150_TICKERS
 
 # =============================================================================
 # PORTFOLIO ALLOCATION
 # =============================================================================
 PORTFOLIO = {
     "strategies": {
-        "dual_momentum": 0.40,      # 40% allocation
-        "momentum_breakout": 0.40,  # 40% allocation
-        "mean_reversion": 0.20,     # 20% allocation
+        "dual_momentum": 0.25,      # 25% allocation
+        "momentum_breakout": 0.25,  # 25% allocation
+        "mean_reversion": 0.25,     # 25% allocation
+        "quality_momentum": 0.25,   # 25% allocation
     },
     "max_position_pct": 0.10,       # Max 10% per stock
     "max_sector_pct": 0.30,         # Max 30% per sector
@@ -103,6 +117,26 @@ MOMENTUM_BREAKOUT = {
     "universe": "all",              # Screen all tickers
     "max_positions": 8,             # Max concurrent breakout positions
     "trend_filter_sma": 200,        # Price must be above 200 SMA
+    "supertrend_period": 10,      # Supertrend ATR period
+    "supertrend_mult": 3.0,        # Supertrend multiplier
+    "adx_period": 14,              # ADX period
+    "adx_threshold": 25,           # Only enter when ADX > 25 (strong trend)
+}
+
+# =============================================================================
+# STRATEGY 2B: QUALITY MOMENTUM PARAMETERS
+# =============================================================================
+QUALITY_MOMENTUM = {
+    "universe": "nifty500",
+    "lookback_momentum": 252,      # 12-month momentum
+    "skip_recent_days": 21,        # Skip last month (avoid reversal)
+    "top_n": 20,                   # Pick top 20 quality+momentum stocks
+    "rebalance_day": 1,            # 1st trading day of month
+    "min_roe": 15.0,               # ROE > 15%
+    "min_roce": 15.0,              # ROCE > 15% (using gross profit as proxy)
+    "max_debt_equity": 1.0,        # Low leverage
+    "momentum_weight": 0.6,        # Weight on momentum in combined score
+    "quality_weight": 0.4,         # Weight on quality in combined score
 }
 
 # =============================================================================
