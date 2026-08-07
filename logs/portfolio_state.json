@@ -1,5 +1,5 @@
 {
-  "cash": 957080.0,
+  "cash": 859517.0,
   "positions": {
     "BOSCHLTD.NS": {
       "qty": 1,
@@ -7,7 +7,23 @@
       "entry_date": "2026-08-06",
       "strategy": "momentum_breakout",
       "stop_loss": 40961.88,
-      "days_held": 2
+      "days_held": 3
+    },
+    "CHOLAFIN.NS": {
+      "qty": 25,
+      "entry_price": 1940.0,
+      "entry_date": "2026-08-07",
+      "strategy": "momentum_breakout",
+      "stop_loss": 1826.27,
+      "days_held": 0
+    },
+    "SHRIRAMFIN.NS": {
+      "qty": 43,
+      "entry_price": 1141.0,
+      "entry_date": "2026-08-07",
+      "strategy": "momentum_breakout",
+      "stop_loss": 1080.1,
+      "days_held": 0
     }
   },
   "trade_history": [
@@ -19,9 +35,27 @@
       "value": 42920.0,
       "date": "2026-08-06T23:08:06.864115",
       "strategy": "momentum_breakout"
+    },
+    {
+      "action": "BUY",
+      "ticker": "CHOLAFIN.NS",
+      "qty": 25,
+      "price": 1940.0,
+      "value": 48500.0,
+      "date": "2026-08-07T11:10:10.563457",
+      "strategy": "momentum_breakout"
+    },
+    {
+      "action": "BUY",
+      "ticker": "SHRIRAMFIN.NS",
+      "qty": 43,
+      "price": 1141.0,
+      "value": 49063.0,
+      "date": "2026-08-07T11:10:10.564379",
+      "strategy": "momentum_breakout"
     }
   ],
-  "last_updated": "2026-08-06T18:35:57.038614",
+  "last_updated": "2026-08-07T11:10:10.564383",
   "strategy_allocations": {
     "dual_momentum": 0.0,
     "momentum_breakout": 0.0,
