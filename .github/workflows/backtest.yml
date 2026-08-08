@@ -4,8 +4,11 @@ on:
   workflow_dispatch:  # Manual trigger only
   push:
     paths:
-      - 'strategies/**'   # Auto-run when strategies change
+      - 'strategies/**'
       - 'config.py'
+      - 'reports/**'
+      - 'engine/**'
+      - 'main.py'
 
 permissions:
   contents: write
