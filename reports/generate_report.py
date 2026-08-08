@@ -399,9 +399,14 @@ class ReportGenerator:
         signals_path = self.log_dir / "signals.json"
         try:
             with open(signals_path) as f:
-                lines = f.readlines()
+                lines = [l.strip() for l in f if l.strip()]
             if lines:
-                return json.loads(lines[-1].strip())  # Latest signals
+                data = json.loads(lines[-1])
+                if isinstance(data, dict) and "signals" in data:
+                    raw = data["signals"]
+                    return [s for s in raw if isinstance(s, dict)]
+                elif isinstance(data, list):
+                    return [s for s in data if isinstance(s, dict)]
         except Exception:
             pass
         return []
@@ -511,6 +516,10 @@ class ReportGenerator:
             "values": portfolio_history or [],
         })
 
+        # Ensure signals is a list of dicts
+        valid_signals = [s for s in signals if isinstance(s, dict)]
+        buy_signals = [s for s in valid_signals if s.get("signal") == "BUY"]
+
         html = DASHBOARD_TEMPLATE.format(
             last_updated=datetime.now().strftime("%Y-%m-%d %H:%M IST"),
             portfolio_value=f"{pv:,.0f}",
@@ -519,10 +528,10 @@ class ReportGenerator:
             return_class=return_class,
             n_positions=portfolio.get("n_positions", len(state.get("positions", {}))),
             position_list=", ".join(list(state.get("positions", {}).keys())[:3]) or "None",
-            n_signals=len([s for s in signals if s.get("signal") == "BUY"]),
+            n_signals=len(buy_signals),
             signal_date=datetime.now().strftime("%d %b %Y"),
             strategy_cards=self._make_strategy_cards(backtests),
-            signals_rows=self._make_signal_rows([s for s in signals if s.get("signal") == "BUY"]),
+            signals_rows=self._make_signal_rows(buy_signals),
             trades_rows=self._make_trade_rows(trades),
             portfolio_chart_data=chart_data,
         )
