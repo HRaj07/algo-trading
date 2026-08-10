@@ -1,5 +1,5 @@
 {
-  "cash": 859517.0,
+  "cash": 828981.6,
   "positions": {
     "BOSCHLTD.NS": {
       "qty": 1,
@@ -7,7 +7,7 @@
       "entry_date": "2026-08-06",
       "strategy": "momentum_breakout",
       "stop_loss": 40961.88,
-      "days_held": 4
+      "days_held": 5
     },
     "CHOLAFIN.NS": {
       "qty": 25,
@@ -15,7 +15,7 @@
       "entry_date": "2026-08-07",
       "strategy": "momentum_breakout",
       "stop_loss": 1826.27,
-      "days_held": 1
+      "days_held": 2
     },
     "SHRIRAMFIN.NS": {
       "qty": 43,
@@ -23,7 +23,15 @@
       "entry_date": "2026-08-07",
       "strategy": "momentum_breakout",
       "stop_loss": 1080.1,
-      "days_held": 1
+      "days_held": 2
+    },
+    "SUNDRMFAST.NS": {
+      "qty": 28,
+      "entry_price": 1090.55,
+      "entry_date": "2026-08-10",
+      "strategy": "momentum_breakout",
+      "stop_loss": 1038.7,
+      "days_held": 0
     }
   },
   "trade_history": [
@@ -53,9 +61,18 @@
       "value": 49063.0,
       "date": "2026-08-07T11:10:10.564379",
       "strategy": "momentum_breakout"
+    },
+    {
+      "action": "BUY",
+      "ticker": "SUNDRMFAST.NS",
+      "qty": 28,
+      "price": 1090.55,
+      "value": 30535.399999999998,
+      "date": "2026-08-10T11:29:25.837060",
+      "strategy": "momentum_breakout"
     }
   ],
-  "last_updated": "2026-08-08T04:41:42.382829",
+  "last_updated": "2026-08-10T11:29:25.837063",
   "strategy_allocations": {
     "dual_momentum": 0.0,
     "momentum_breakout": 0.0,
