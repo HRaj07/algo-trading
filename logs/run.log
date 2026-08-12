@@ -844,3 +844,79 @@ TypeError: NDFrame.fillna() got an unexpected keyword argument 'method'
 ✅ Daily run complete | 1 buys, 0 sells
 2026-08-11 11:08:13 | INFO     | main | Portfolio: {'cash': 798441.6, 'n_positions': 5, 'total_value': 1000000.0, 'total_return_pct': 0.0, 'positions': ['BOSCHLTD.NS', 'CHOLAFIN.NS', 'SHRIRAMFIN.NS', 'SUNDRMFAST.NS', 'TITAN.NS'], 'last_updated': '2026-08-11T11:08:13.704718'}
 2026-08-11 11:08:14 | INFO     | main | ✅ Discord notification sent
+2026-08-12 11:11:55 | WARNING  | data.fetcher | nsepy not available, using yfinance only
+2026-08-12 11:11:55 | INFO     | main | ============================================================
+2026-08-12 11:11:55 | INFO     | main | AlgoTrade India | Daily Run | 2026-08-12 11:11:55
+2026-08-12 11:11:55 | INFO     | main | ============================================================
+2026-08-12 11:11:55 | INFO     | data.fetcher | DataFetcher initialized | cache: data/cache
+2026-08-12 11:11:55 | INFO     | engine.portfolio | Loaded portfolio: ₹798,442 cash, 5 positions
+2026-08-12 11:11:55 | INFO     | main | 
+[1/3] Running Dual Momentum Strategy...
+2026-08-12 11:11:55 | INFO     | strategies.dual_momentum | Dual Momentum: Fetching data for today's signal...
+2026-08-12 11:12:07 | ERROR    | yfinance | HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: TATAMOTORS.NS"}}}
+2026-08-12 11:12:07 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
+2026-08-12 11:12:15 | WARNING  | data.fetcher | Failed tickers (1): ['TATAMOTORS.NS']...
+2026-08-12 11:12:15 | INFO     | data.fetcher | Fetched data for 48/49 tickers
+2026-08-12 11:12:15 | ERROR    | main | Dual Momentum error: NDFrame.fillna() got an unexpected keyword argument 'method'
+Traceback (most recent call last):
+  File "/Users/runner/work/algo-trading/algo-trading/main.py", line 81, in run_daily_signals
+    dm_signal = dm.generate_today_signal(start=start_date)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/runner/work/algo-trading/algo-trading/strategies/dual_momentum.py", line 206, in generate_today_signal
+    prices = self.fetcher.fetch_close_panel(self.tickers, start, end)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/runner/work/algo-trading/algo-trading/data/fetcher.py", line 180, in fetch_close_panel
+    return self.fetch_panel(tickers, start, end, "close")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/runner/work/algo-trading/algo-trading/data/fetcher.py", line 173, in fetch_panel
+    panel = panel.fillna(method="ffill").dropna(how="all")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: NDFrame.fillna() got an unexpected keyword argument 'method'
+2026-08-12 11:12:15 | INFO     | main | 
+[2/3] Running Momentum Breakout Strategy...
+2026-08-12 11:12:15 | INFO     | strategies.momentum_breakout | Momentum Breakout: Fetching data...
+2026-08-12 11:12:19 | ERROR    | yfinance | HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: TATAMOTORS.NS"}}}
+2026-08-12 11:12:19 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
+2026-08-12 11:12:36 | ERROR    | yfinance | $ZOMATO.NS: possibly delisted; no timezone found
+2026-08-12 11:12:54 | WARNING  | data.fetcher | Failed tickers (2): ['TATAMOTORS.NS', 'ZOMATO.NS']...
+2026-08-12 11:12:54 | INFO     | data.fetcher | Fetched data for 135/139 tickers
+2026-08-12 11:12:54 | INFO     | main |   → BREAKOUT BUY SUNDRMFAST.NS @ ₹1210.05 | SL: ₹1143.84
+2026-08-12 11:12:54 | INFO     | main |   → BREAKOUT BUY BOSCHLTD.NS @ ₹45185.0 | SL: ₹43043.97
+2026-08-12 11:12:54 | INFO     | main |   → BREAKOUT BUY TITAN.NS @ ₹5128.0 | SL: ₹4935.5
+2026-08-12 11:12:54 | INFO     | main |   → BREAKOUT BUY SIEMENS.NS @ ₹4011.0 | SL: ₹3793.76
+2026-08-12 11:12:54 | INFO     | main |   Scanned: 135 | Breakouts: 4
+2026-08-12 11:12:54 | INFO     | main | 
+[3/3] Running Mean Reversion Strategy...
+2026-08-12 11:12:54 | INFO     | strategies.mean_reversion | Mean Reversion: Fetching data...
+2026-08-12 11:12:59 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
+2026-08-12 11:13:02 | WARNING  | data.fetcher | Failed tickers (1): ['TATAMOTORS.NS']...
+2026-08-12 11:13:02 | INFO     | data.fetcher | Fetched data for 48/49 tickers
+2026-08-12 11:13:02 | INFO     | main | 
+[4/4] Running Quality Momentum Strategy...
+2026-08-12 11:13:02 | INFO     | strategies.quality_momentum | Quality Momentum: Fetching data for today's signal...
+2026-08-12 11:13:06 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
+2026-08-12 11:13:15 | ERROR    | yfinance | $ZOMATO.NS: possibly delisted; no timezone found
+2026-08-12 11:13:23 | WARNING  | data.fetcher | Failed tickers (2): ['TATAMOTORS.NS', 'ZOMATO.NS']...
+2026-08-12 11:13:23 | INFO     | data.fetcher | Fetched data for 135/139 tickers
+2026-08-12 11:13:23 | ERROR    | main | Quality Momentum error: NDFrame.fillna() got an unexpected keyword argument 'method'
+Traceback (most recent call last):
+  File "/Users/runner/work/algo-trading/algo-trading/main.py", line 160, in run_daily_signals
+    qm_signal = qm.generate_today_signal(start=start_date)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/runner/work/algo-trading/algo-trading/strategies/quality_momentum.py", line 85, in generate_today_signal
+    prices = self.fetcher.fetch_close_panel(self.tickers, start, end)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/runner/work/algo-trading/algo-trading/data/fetcher.py", line 180, in fetch_close_panel
+    return self.fetch_panel(tickers, start, end, "close")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/runner/work/algo-trading/algo-trading/data/fetcher.py", line 173, in fetch_panel
+    panel = panel.fillna(method="ffill").dropna(how="all")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: NDFrame.fillna() got an unexpected keyword argument 'method'
+2026-08-12 11:13:23 | INFO     | engine.portfolio | BUY  SIEMENS.NS: 7 @ ₹4011.00 = ₹28,077 [momentum_breakout]
+2026-08-12 11:13:23 | INFO     | engine.risk | Portfolio: ₹1,000,000 | Return: 0.0%
+2026-08-12 11:13:23 | INFO     | reports.generate_report | Dashboard generated: reports/index.html
+2026-08-12 11:13:23 | INFO     | main | 
+✅ Daily run complete | 4 buys, 0 sells
+2026-08-12 11:13:23 | INFO     | main | Portfolio: {'cash': 770364.6, 'n_positions': 6, 'total_value': 1000000.0, 'total_return_pct': 0.0, 'positions': ['BOSCHLTD.NS', 'CHOLAFIN.NS', 'SHRIRAMFIN.NS', 'SUNDRMFAST.NS', 'TITAN.NS', 'SIEMENS.NS'], 'last_updated': '2026-08-12T11:13:23.233622'}
+2026-08-12 11:13:23 | INFO     | main | ✅ Discord notification sent

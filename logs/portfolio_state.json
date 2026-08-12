@@ -1,5 +1,5 @@
 {
-  "cash": 798441.6,
+  "cash": 770364.6,
   "positions": {
     "BOSCHLTD.NS": {
       "qty": 1,
@@ -7,7 +7,7 @@
       "entry_date": "2026-08-06",
       "strategy": "momentum_breakout",
       "stop_loss": 40961.88,
-      "days_held": 6
+      "days_held": 7
     },
     "CHOLAFIN.NS": {
       "qty": 25,
@@ -15,7 +15,7 @@
       "entry_date": "2026-08-07",
       "strategy": "momentum_breakout",
       "stop_loss": 1826.27,
-      "days_held": 3
+      "days_held": 4
     },
     "SHRIRAMFIN.NS": {
       "qty": 43,
@@ -23,7 +23,7 @@
       "entry_date": "2026-08-07",
       "strategy": "momentum_breakout",
       "stop_loss": 1080.1,
-      "days_held": 3
+      "days_held": 4
     },
     "SUNDRMFAST.NS": {
       "qty": 28,
@@ -31,7 +31,7 @@
       "entry_date": "2026-08-10",
       "strategy": "momentum_breakout",
       "stop_loss": 1038.7,
-      "days_held": 1
+      "days_held": 2
     },
     "TITAN.NS": {
       "qty": 6,
@@ -39,6 +39,14 @@
       "entry_date": "2026-08-11",
       "strategy": "momentum_breakout",
       "stop_loss": 4894.69,
+      "days_held": 1
+    },
+    "SIEMENS.NS": {
+      "qty": 7,
+      "entry_price": 4011.0,
+      "entry_date": "2026-08-12",
+      "strategy": "momentum_breakout",
+      "stop_loss": 3793.76,
       "days_held": 0
     }
   },
@@ -87,9 +95,18 @@
       "value": 30540.0,
       "date": "2026-08-11T11:08:13.704695",
       "strategy": "momentum_breakout"
+    },
+    {
+      "action": "BUY",
+      "ticker": "SIEMENS.NS",
+      "qty": 7,
+      "price": 4011.0,
+      "value": 28077.0,
+      "date": "2026-08-12T11:13:23.233602",
+      "strategy": "momentum_breakout"
     }
   ],
-  "last_updated": "2026-08-11T11:08:13.704718",
+  "last_updated": "2026-08-12T11:13:23.233622",
   "strategy_allocations": {
     "dual_momentum": 0.0,
     "momentum_breakout": 0.0,
