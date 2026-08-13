@@ -7,7 +7,7 @@
       "entry_date": "2026-08-06",
       "strategy": "momentum_breakout",
       "stop_loss": 40961.88,
-      "days_held": 7
+      "days_held": 8
     },
     "CHOLAFIN.NS": {
       "qty": 25,
@@ -15,7 +15,7 @@
       "entry_date": "2026-08-07",
       "strategy": "momentum_breakout",
       "stop_loss": 1826.27,
-      "days_held": 4
+      "days_held": 5
     },
     "SHRIRAMFIN.NS": {
       "qty": 43,
@@ -23,7 +23,7 @@
       "entry_date": "2026-08-07",
       "strategy": "momentum_breakout",
       "stop_loss": 1080.1,
-      "days_held": 4
+      "days_held": 5
     },
     "SUNDRMFAST.NS": {
       "qty": 28,
@@ -31,7 +31,7 @@
       "entry_date": "2026-08-10",
       "strategy": "momentum_breakout",
       "stop_loss": 1038.7,
-      "days_held": 2
+      "days_held": 3
     },
     "TITAN.NS": {
       "qty": 6,
@@ -39,7 +39,7 @@
       "entry_date": "2026-08-11",
       "strategy": "momentum_breakout",
       "stop_loss": 4894.69,
-      "days_held": 1
+      "days_held": 2
     },
     "SIEMENS.NS": {
       "qty": 7,
@@ -47,7 +47,7 @@
       "entry_date": "2026-08-12",
       "strategy": "momentum_breakout",
       "stop_loss": 3793.76,
-      "days_held": 0
+      "days_held": 1
     }
   },
   "trade_history": [
@@ -106,7 +106,7 @@
       "strategy": "momentum_breakout"
     }
   ],
-  "last_updated": "2026-08-12T11:13:23.233622",
+  "last_updated": "2026-08-13T11:14:02.286250",
   "strategy_allocations": {
     "dual_momentum": 0.0,
     "momentum_breakout": 0.0,
