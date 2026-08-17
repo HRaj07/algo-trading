@@ -7,7 +7,7 @@
       "entry_date": "2026-08-06",
       "strategy": "momentum_breakout",
       "stop_loss": 40961.88,
-      "days_held": 9
+      "days_held": 10
     },
     "CHOLAFIN.NS": {
       "qty": 25,
@@ -15,7 +15,7 @@
       "entry_date": "2026-08-07",
       "strategy": "momentum_breakout",
       "stop_loss": 1826.27,
-      "days_held": 6
+      "days_held": 7
     },
     "SHRIRAMFIN.NS": {
       "qty": 43,
@@ -23,7 +23,7 @@
       "entry_date": "2026-08-07",
       "strategy": "momentum_breakout",
       "stop_loss": 1080.1,
-      "days_held": 6
+      "days_held": 7
     },
     "SUNDRMFAST.NS": {
       "qty": 28,
@@ -31,7 +31,7 @@
       "entry_date": "2026-08-10",
       "strategy": "momentum_breakout",
       "stop_loss": 1038.7,
-      "days_held": 4
+      "days_held": 5
     },
     "TITAN.NS": {
       "qty": 6,
@@ -39,7 +39,7 @@
       "entry_date": "2026-08-11",
       "strategy": "momentum_breakout",
       "stop_loss": 4894.69,
-      "days_held": 3
+      "days_held": 4
     },
     "SIEMENS.NS": {
       "qty": 7,
@@ -47,7 +47,7 @@
       "entry_date": "2026-08-12",
       "strategy": "momentum_breakout",
       "stop_loss": 3793.76,
-      "days_held": 2
+      "days_held": 3
     },
     "FLUOROCHEM.NS": {
       "qty": 6,
@@ -55,7 +55,7 @@
       "entry_date": "2026-08-14",
       "strategy": "momentum_breakout",
       "stop_loss": 4376.72,
-      "days_held": 0
+      "days_held": 1
     },
     "ADANIPORTS.NS": {
       "qty": 50,
@@ -63,7 +63,7 @@
       "entry_date": "2026-08-14",
       "strategy": "mean_reversion",
       "stop_loss": 1575.1,
-      "days_held": 0
+      "days_held": 1
     }
   },
   "trade_history": [
@@ -140,7 +140,7 @@
       "strategy": "mean_reversion"
     }
   ],
-  "last_updated": "2026-08-14T11:11:05.031966",
+  "last_updated": "2026-08-17T10:51:06.512868",
   "strategy_allocations": {
     "dual_momentum": 0.0,
     "momentum_breakout": 0.0,
