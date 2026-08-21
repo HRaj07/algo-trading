@@ -12,3 +12,4 @@
 {"date": "2026-08-18T10:50:22.664541", "signals": [], "n_buy": 0, "n_sell": 0}
 {"date": "2026-08-19T10:49:49.762667", "signals": [{"ticker": "BOSCHLTD.NS", "signal": "BUY", "current_price": 48730.0, "high_52w": 47100.0, "breakout_strength": 0.0346, "volume_ratio": 2.08, "atr": 1139.88, "stop_loss": 46450.23, "stop_pct": 0.0468, "sma_200": 37063.55, "supertrend_direction": 1, "adx_value": 43.1, "signal_type": "momentum_breakout", "strategy": "momentum_breakout"}, {"ticker": "GNFC.NS", "signal": "BUY", "current_price": 609.75, "high_52w": 600.65, "breakout_strength": 0.0152, "volume_ratio": 2.53, "atr": 16.82, "stop_loss": 576.12, "stop_pct": 0.0552, "sma_200": 487.41, "supertrend_direction": 1, "adx_value": 27.6, "signal_type": "momentum_breakout", "strategy": "momentum_breakout"}], "n_buy": 2, "n_sell": 0}
 {"date": "2026-08-20T10:50:50.950840", "signals": [], "n_buy": 0, "n_sell": 0}
+{"date": "2026-08-21T10:51:02.422508", "signals": [], "n_buy": 0, "n_sell": 0}
