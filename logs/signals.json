@@ -14,3 +14,4 @@
 {"date": "2026-08-20T10:50:50.950840", "signals": [], "n_buy": 0, "n_sell": 0}
 {"date": "2026-08-21T10:51:02.422508", "signals": [], "n_buy": 0, "n_sell": 0}
 {"date": "2026-08-24T10:56:49.495349", "signals": [{"ticker": "ADANIPORTS.NS", "signal": "SELL", "reason": "target_reached", "current_price": 1700.0, "entry_price": 1658.0, "rsi": 44.54, "pnl_pct": 0.025331724969843185, "strategy": "mean_reversion"}], "n_buy": 0, "n_sell": 1}
+{"date": "2026-08-25T10:53:18.504009", "signals": [{"ticker": "SIEMENS.NS", "signal": "BUY", "current_price": 4114.0, "high_52w": 4019.0, "breakout_strength": 0.0236, "volume_ratio": 2.93, "atr": 104.76, "stop_loss": 3904.47, "stop_pct": 0.0509, "sma_200": 3402.01, "supertrend_direction": 1, "adx_value": 28.8, "signal_type": "momentum_breakout", "strategy": "momentum_breakout"}], "n_buy": 1, "n_sell": 0}
