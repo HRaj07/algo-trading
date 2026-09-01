@@ -1858,3 +1858,80 @@ TypeError: NDFrame.fillna() got an unexpected keyword argument 'method'
 ✅ Daily run complete | 2 buys, 0 sells
 2026-08-31 17:40:09 | INFO     | main | Portfolio: {'cash': 713079.15, 'n_positions': 8, 'total_value': 1002100.0, 'total_return_pct': 0.21, 'positions': ['BOSCHLTD.NS', 'CHOLAFIN.NS', 'SHRIRAMFIN.NS', 'SUNDRMFAST.NS', 'TITAN.NS', 'SIEMENS.NS', 'FLUOROCHEM.NS', 'GNFC.NS'], 'last_updated': '2026-08-31T17:40:09.240662'}
 2026-08-31 17:40:09 | INFO     | main | ✅ Discord notification sent
+2026-09-01 14:55:49 | WARNING  | data.fetcher | nsepy not available, using yfinance only
+2026-09-01 14:55:49 | INFO     | main | ============================================================
+2026-09-01 14:55:49 | INFO     | main | AlgoTrade India | Daily Run | 2026-09-01 14:55:49
+2026-09-01 14:55:49 | INFO     | main | ============================================================
+2026-09-01 14:55:49 | INFO     | data.fetcher | DataFetcher initialized | cache: data/cache
+2026-09-01 14:55:49 | INFO     | engine.portfolio | Loaded portfolio: ₹713,079 cash, 8 positions
+2026-09-01 14:55:49 | INFO     | main | 
+[1/3] Running Dual Momentum Strategy...
+2026-09-01 14:55:49 | INFO     | strategies.dual_momentum | Dual Momentum: Fetching data for today's signal...
+2026-09-01 14:56:05 | ERROR    | yfinance | HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: TATAMOTORS.NS"}}}
+2026-09-01 14:56:05 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
+2026-09-01 14:56:18 | WARNING  | data.fetcher | Failed tickers (1): ['TATAMOTORS.NS']...
+2026-09-01 14:56:18 | INFO     | data.fetcher | Fetched data for 48/49 tickers
+2026-09-01 14:56:18 | ERROR    | main | Dual Momentum error: NDFrame.fillna() got an unexpected keyword argument 'method'
+Traceback (most recent call last):
+  File "/Users/runner/work/algo-trading/algo-trading/main.py", line 81, in run_daily_signals
+    dm_signal = dm.generate_today_signal(start=start_date)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/runner/work/algo-trading/algo-trading/strategies/dual_momentum.py", line 206, in generate_today_signal
+    prices = self.fetcher.fetch_close_panel(self.tickers, start, end)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/runner/work/algo-trading/algo-trading/data/fetcher.py", line 180, in fetch_close_panel
+    return self.fetch_panel(tickers, start, end, "close")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/runner/work/algo-trading/algo-trading/data/fetcher.py", line 173, in fetch_panel
+    panel = panel.fillna(method="ffill").dropna(how="all")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: NDFrame.fillna() got an unexpected keyword argument 'method'
+2026-09-01 14:56:18 | INFO     | main | 
+[2/3] Running Momentum Breakout Strategy...
+2026-09-01 14:56:18 | INFO     | strategies.momentum_breakout | Momentum Breakout: Fetching data...
+2026-09-01 14:56:23 | ERROR    | yfinance | HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: TATAMOTORS.NS"}}}
+2026-09-01 14:56:23 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
+2026-09-01 14:56:47 | ERROR    | yfinance | $ZOMATO.NS: possibly delisted; no timezone found
+2026-09-01 14:57:19 | ERROR    | yfinance | $IDFCFIRSTB.NS: possibly delisted; no price data found  (1d 2015-01-01 -> 2026-09-01)
+2026-09-01 14:57:22 | WARNING  | data.fetcher | Failed tickers (3): ['TATAMOTORS.NS', 'ZOMATO.NS', 'IDFCFIRSTB.NS']...
+2026-09-01 14:57:22 | INFO     | data.fetcher | Fetched data for 134/139 tickers
+2026-09-01 14:57:22 | INFO     | main |   → BREAKOUT BUY DIVISLAB.NS @ ₹9467.0 | SL: ₹9093.03
+2026-09-01 14:57:22 | INFO     | main |   → BREAKOUT BUY BAJAJ-AUTO.NS @ ₹12130.0 | SL: ₹11716.46
+2026-09-01 14:57:22 | INFO     | main |   → EXIT GNFC.NS (trailing_stop) | PnL: -5.7%
+2026-09-01 14:57:22 | INFO     | main |   Scanned: 134 | Breakouts: 2
+2026-09-01 14:57:22 | INFO     | main | 
+[3/3] Running Mean Reversion Strategy...
+2026-09-01 14:57:22 | INFO     | strategies.mean_reversion | Mean Reversion: Fetching data...
+2026-09-01 14:57:27 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
+2026-09-01 14:57:30 | WARNING  | data.fetcher | Failed tickers (1): ['TATAMOTORS.NS']...
+2026-09-01 14:57:30 | INFO     | data.fetcher | Fetched data for 48/49 tickers
+2026-09-01 14:57:30 | INFO     | main | 
+[4/4] Running Quality Momentum Strategy...
+2026-09-01 14:57:30 | INFO     | strategies.quality_momentum | Quality Momentum: Fetching data for today's signal...
+2026-09-01 14:57:34 | ERROR    | yfinance | $TATAMOTORS.NS: possibly delisted; no timezone found
+2026-09-01 14:57:43 | ERROR    | yfinance | $ZOMATO.NS: possibly delisted; no timezone found
+2026-09-01 14:57:50 | WARNING  | data.fetcher | Failed tickers (2): ['TATAMOTORS.NS', 'ZOMATO.NS']...
+2026-09-01 14:57:50 | INFO     | data.fetcher | Fetched data for 135/139 tickers
+2026-09-01 14:57:50 | ERROR    | main | Quality Momentum error: NDFrame.fillna() got an unexpected keyword argument 'method'
+Traceback (most recent call last):
+  File "/Users/runner/work/algo-trading/algo-trading/main.py", line 160, in run_daily_signals
+    qm_signal = qm.generate_today_signal(start=start_date)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/runner/work/algo-trading/algo-trading/strategies/quality_momentum.py", line 85, in generate_today_signal
+    prices = self.fetcher.fetch_close_panel(self.tickers, start, end)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/runner/work/algo-trading/algo-trading/data/fetcher.py", line 180, in fetch_close_panel
+    return self.fetch_panel(tickers, start, end, "close")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/runner/work/algo-trading/algo-trading/data/fetcher.py", line 173, in fetch_panel
+    panel = panel.fillna(method="ffill").dropna(how="all")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: NDFrame.fillna() got an unexpected keyword argument 'method'
+2026-09-01 14:57:50 | INFO     | engine.portfolio | SELL GNFC.NS: 51 @ ₹574.75 | PnL: ₹-1,785 (-5.7%) ❌ [trailing_stop]
+2026-09-01 14:57:50 | INFO     | engine.portfolio | BUY  DIVISLAB.NS: 3 @ ₹9467.00 = ₹28,401 [momentum_breakout]
+2026-09-01 14:57:50 | INFO     | engine.risk | Portfolio: ₹1,000,315 | Return: 0.0%
+2026-09-01 14:57:50 | INFO     | reports.generate_report | Dashboard generated: reports/index.html
+2026-09-01 14:57:50 | INFO     | main | 
+✅ Daily run complete | 2 buys, 1 sells
+2026-09-01 14:57:50 | INFO     | main | Portfolio: {'cash': np.float64(713990.4), 'n_positions': 8, 'total_value': np.float64(1000315.0), 'total_return_pct': np.float64(0.03), 'positions': ['BOSCHLTD.NS', 'CHOLAFIN.NS', 'SHRIRAMFIN.NS', 'SUNDRMFAST.NS', 'TITAN.NS', 'SIEMENS.NS', 'FLUOROCHEM.NS', 'DIVISLAB.NS'], 'last_updated': '2026-09-01T14:57:50.355004'}
+2026-09-01 14:57:51 | INFO     | main | ✅ Discord notification sent
