@@ -1,8 +1,8 @@
 {
-  "yesterday_value": 1002100.0,
-  "portfolio_value": 1000315.0,
+  "yesterday_value": 1000315.0,
+  "portfolio_value": 993660.7977294922,
   "peak_value": 1002100.0,
   "initial_capital": 1000000,
-  "last_updated": "2026-09-01T14:57:50.355944",
-  "total_return_pct": 0.0315
+  "last_updated": "2026-09-02T14:33:14.999896",
+  "total_return_pct": -0.6339202270507813
 }
