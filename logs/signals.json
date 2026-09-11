@@ -27,3 +27,4 @@
 {"date": "2026-09-08T14:36:00.948717", "signals": [], "n_buy": 0, "n_sell": 0}
 {"date": "2026-09-09T14:40:01.252843", "signals": [{"ticker": "DIVISLAB.NS", "signal": "BUY", "current_price": 9575.0, "high_52w": 9467.0, "breakout_strength": 0.0114, "volume_ratio": 1.88, "atr": 203.14, "stop_loss": 9168.73, "stop_pct": 0.0424, "sma_200": 6781.28, "supertrend_direction": 1, "adx_value": 66.9, "signal_type": "momentum_breakout", "strategy": "momentum_breakout"}], "n_buy": 1, "n_sell": 0}
 {"date": "2026-09-10T14:30:17.005170", "signals": [{"ticker": "NAVINFLUOR.NS", "signal": "BUY", "current_price": 8775.5, "high_52w": 8731.0, "breakout_strength": 0.0051, "volume_ratio": 2.25, "atr": 225.19, "stop_loss": 8325.12, "stop_pct": 0.0513, "sma_200": 6825.45, "supertrend_direction": 1, "adx_value": 32.2, "signal_type": "momentum_breakout", "strategy": "momentum_breakout"}], "n_buy": 1, "n_sell": 0}
+{"date": "2026-09-11T14:29:38.132235", "signals": [], "n_buy": 0, "n_sell": 0}
