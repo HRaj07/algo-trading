@@ -7,7 +7,7 @@
       "entry_date": "2026-08-06",
       "strategy": "momentum_breakout",
       "stop_loss": 40961.88,
-      "days_held": 39
+      "days_held": 40
     },
     "SUNDRMFAST.NS": {
       "qty": 28,
@@ -15,7 +15,7 @@
       "entry_date": "2026-08-10",
       "strategy": "momentum_breakout",
       "stop_loss": 1038.7,
-      "days_held": 34
+      "days_held": 35
     },
     "FLUOROCHEM.NS": {
       "qty": 6,
@@ -23,7 +23,7 @@
       "entry_date": "2026-08-14",
       "strategy": "momentum_breakout",
       "stop_loss": 4376.72,
-      "days_held": 30
+      "days_held": 31
     },
     "DIVISLAB.NS": {
       "qty": 3,
@@ -31,7 +31,7 @@
       "entry_date": "2026-09-01",
       "strategy": "momentum_breakout",
       "stop_loss": 9093.03,
-      "days_held": 18
+      "days_held": 19
     },
     "NESTLEIND.NS": {
       "qty": 60,
@@ -39,7 +39,7 @@
       "entry_date": "2026-09-16",
       "strategy": "mean_reversion",
       "stop_loss": 1293.9,
-      "days_held": 7
+      "days_held": 8
     },
     "GNFC.NS": {
       "qty": 51,
@@ -47,7 +47,7 @@
       "entry_date": "2026-09-23",
       "strategy": "momentum_breakout",
       "stop_loss": 562.15,
-      "days_held": 2
+      "days_held": 3
     }
   },
   "trade_history": [
@@ -304,7 +304,7 @@
       "strategy": "momentum_breakout"
     }
   ],
-  "last_updated": "2026-09-25T15:19:34.816969",
+  "last_updated": "2026-09-28T18:12:25.227169",
   "strategy_allocations": {
     "dual_momentum": 0.0,
     "momentum_breakout": 0.0,
