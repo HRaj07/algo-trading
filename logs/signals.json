@@ -40,3 +40,4 @@
 {"date": "2026-09-25T15:19:34.819554", "signals": [{"ticker": "IDFCFIRSTB.NS", "signal": "SELL", "reason": "trailing_stop", "current_price": 83.76000213623047, "entry_price": 87.5, "pnl_pct": -0.042742832728794644, "strategy": "momentum_breakout"}], "n_buy": 0, "n_sell": 1}
 {"date": "2026-09-28T18:12:25.229300", "signals": [], "n_buy": 0, "n_sell": 0}
 {"date": "2026-09-29T16:33:53.936496", "signals": [], "n_buy": 0, "n_sell": 0}
+{"date": "2026-09-30T16:27:10.499766", "signals": [{"ticker": "BAJAJ-AUTO.NS", "signal": "BUY", "current_price": 10811.0, "rsi": 29.95, "bb_position": -0.066, "sma_200": 10142.81, "lower_bb": 10897.5, "middle_bb": 11552.05, "stop_loss": 10270.45, "target": 11552.05, "signal_type": "mean_reversion", "strategy": "mean_reversion"}], "n_buy": 1, "n_sell": 0}
