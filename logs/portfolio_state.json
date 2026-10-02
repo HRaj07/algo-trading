@@ -1,5 +1,5 @@
 {
-  "cash": 669267.0384857178,
+  "cash": 692429.5384857178,
   "positions": {
     "BOSCHLTD.NS": {
       "qty": 1,
@@ -7,7 +7,7 @@
       "entry_date": "2026-08-06",
       "strategy": "momentum_breakout",
       "stop_loss": 40961.88,
-      "days_held": 43
+      "days_held": 44
     },
     "SUNDRMFAST.NS": {
       "qty": 28,
@@ -15,15 +15,7 @@
       "entry_date": "2026-08-10",
       "strategy": "momentum_breakout",
       "stop_loss": 1038.7,
-      "days_held": 38
-    },
-    "FLUOROCHEM.NS": {
-      "qty": 6,
-      "entry_price": 4714.7,
-      "entry_date": "2026-08-14",
-      "strategy": "momentum_breakout",
-      "stop_loss": 4376.72,
-      "days_held": 34
+      "days_held": 39
     },
     "DIVISLAB.NS": {
       "qty": 3,
@@ -31,7 +23,7 @@
       "entry_date": "2026-09-01",
       "strategy": "momentum_breakout",
       "stop_loss": 9093.03,
-      "days_held": 22
+      "days_held": 23
     },
     "GNFC.NS": {
       "qty": 51,
@@ -39,15 +31,7 @@
       "entry_date": "2026-09-23",
       "strategy": "momentum_breakout",
       "stop_loss": 562.15,
-      "days_held": 6
-    },
-    "BAJAJ-AUTO.NS": {
-      "qty": 7,
-      "entry_price": 10811.0,
-      "entry_date": "2026-09-30",
-      "strategy": "mean_reversion",
-      "stop_loss": 10270.45,
-      "days_held": 1
+      "days_held": 7
     },
     "TITAN.NS": {
       "qty": 17,
@@ -55,6 +39,14 @@
       "entry_date": "2026-10-01",
       "strategy": "mean_reversion",
       "stop_loss": 4357.65,
+      "days_held": 1
+    },
+    "APOLLOHOSP.NS": {
+      "qty": 9,
+      "entry_price": 8133.5,
+      "entry_date": "2026-10-02",
+      "strategy": "mean_reversion",
+      "stop_loss": 7726.82,
       "days_held": 0
     }
   },
@@ -341,9 +333,44 @@
       "value": 77979.0,
       "date": "2026-10-01T17:04:24.437823",
       "strategy": "mean_reversion"
+    },
+    {
+      "action": "SELL",
+      "ticker": "FLUOROCHEM.NS",
+      "qty": 6,
+      "price": 4341.5,
+      "value": 26049.0,
+      "entry_price": 4714.7,
+      "pnl": -2239.199999999999,
+      "pnl_pct": -7.915668017053043,
+      "date": "2026-10-02T16:18:56.831925",
+      "reason": "trailing_stop",
+      "strategy": "momentum_breakout"
+    },
+    {
+      "action": "SELL",
+      "ticker": "BAJAJ-AUTO.NS",
+      "qty": 7,
+      "price": 10045.0,
+      "value": 70315.0,
+      "entry_price": 10811.0,
+      "pnl": -5362.0,
+      "pnl_pct": -7.085376005919897,
+      "date": "2026-10-02T16:18:56.832703",
+      "reason": "stop_loss",
+      "strategy": "mean_reversion"
+    },
+    {
+      "action": "BUY",
+      "ticker": "APOLLOHOSP.NS",
+      "qty": 9,
+      "price": 8133.5,
+      "value": 73201.5,
+      "date": "2026-10-02T16:18:56.833394",
+      "strategy": "mean_reversion"
     }
   ],
-  "last_updated": "2026-10-01T17:04:24.437829",
+  "last_updated": "2026-10-02T16:18:56.833396",
   "strategy_allocations": {
     "dual_momentum": 0.0,
     "momentum_breakout": 0.0,
