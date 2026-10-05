@@ -1,7 +1,7 @@
 {
   "strategy": "Mean Reversion",
   "initial_capital": 1000000,
-  "final_value": 1092.57,
+  "final_value": 1092.48,
   "total_return_pct": -99.89,
   "cagr_pct": -44.65,
   "annual_volatility_pct": 40.53,

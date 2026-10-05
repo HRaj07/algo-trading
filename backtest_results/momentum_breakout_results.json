@@ -1,7 +1,7 @@
 {
   "strategy": "Momentum Breakout",
   "initial_capital": 1000000,
-  "final_value": 2141478.46,
+  "final_value": 2141478.44,
   "total_return_pct": 114.15,
   "cagr_pct": 6.83,
   "annual_volatility_pct": 24.99,
