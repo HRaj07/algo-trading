@@ -1,0 +1,16 @@
+{
+  "strategy": "Momentum Breakout",
+  "initial_capital": 1000000,
+  "final_value": 2141478.46,
+  "total_return_pct": 114.15,
+  "cagr_pct": 6.83,
+  "annual_volatility_pct": 24.99,
+  "sharpe_ratio": 0.013,
+  "max_drawdown_pct": -55.1,
+  "calmar_ratio": 0.124,
+  "benchmark_cagr_pct": null,
+  "alpha_pct": 6.83,
+  "start_date": "2015-01-01",
+  "end_date": "2026-10-01",
+  "n_years": 11.5
+}

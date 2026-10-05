@@ -1,0 +1,16 @@
+{
+  "strategy": "Mean Reversion",
+  "initial_capital": 1000000,
+  "final_value": 1092.57,
+  "total_return_pct": -99.89,
+  "cagr_pct": -44.65,
+  "annual_volatility_pct": 40.53,
+  "sharpe_ratio": -1.262,
+  "max_drawdown_pct": -99.89,
+  "calmar_ratio": -0.447,
+  "benchmark_cagr_pct": null,
+  "alpha_pct": -44.65,
+  "start_date": "2015-01-01",
+  "end_date": "2026-10-01",
+  "n_years": 11.5
+}

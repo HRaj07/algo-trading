@@ -1,0 +1,16 @@
+{
+  "strategy": "Dual Momentum",
+  "initial_capital": 1000000,
+  "final_value": 1705652.98,
+  "total_return_pct": 70.57,
+  "cagr_pct": 4.76,
+  "annual_volatility_pct": 14.67,
+  "sharpe_ratio": -0.118,
+  "max_drawdown_pct": -42.14,
+  "calmar_ratio": 0.113,
+  "benchmark_cagr_pct": 8.93,
+  "alpha_pct": -4.17,
+  "start_date": "2015-01-02",
+  "end_date": "2026-10-01",
+  "n_years": 11.5
+}
