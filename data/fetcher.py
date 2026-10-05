@@ -170,7 +170,7 @@ class DataFetcher:
                 panels[ticker] = df[field]
         panel = pd.DataFrame(panels)
         panel = panel.sort_index()
-        panel = panel.fillna(method="ffill").dropna(how="all")
+        panel = panel.ffill().dropna(how="all")
         return panel
 
     def fetch_close_panel(

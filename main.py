@@ -246,7 +246,7 @@ def run_daily_signals() -> List[Dict]:
     if buy_signals:
         lines.append("\n**🟢 BUY Signals:**")
         for s in buy_signals:
-            lines.append(f"• **{s.get('ticker')}** @ ₹{s.get('price', 0):,.2f} | SL: ₹{s.get('stop_loss', 0):,.2f} [{s.get('strategy')}]")
+            lines.append(f"• **{s.get('ticker')}** @ ₹{(s.get('price') or 0):,.2f} | SL: ₹{(s.get('stop_loss') or 0):,.2f} [{s.get('strategy')}]")
     if sell_signals:
         lines.append("\n**🔴 SELL Signals:**")
         for s in sell_signals:
