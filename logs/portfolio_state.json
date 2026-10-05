@@ -1,5 +1,5 @@
 {
-  "cash": 692429.5384857178,
+  "cash": 493223.48852844245,
   "positions": {
     "BOSCHLTD.NS": {
       "qty": 1,
@@ -7,7 +7,7 @@
       "entry_date": "2026-08-06",
       "strategy": "momentum_breakout",
       "stop_loss": 40961.88,
-      "days_held": 44
+      "days_held": 45
     },
     "SUNDRMFAST.NS": {
       "qty": 28,
@@ -15,7 +15,7 @@
       "entry_date": "2026-08-10",
       "strategy": "momentum_breakout",
       "stop_loss": 1038.7,
-      "days_held": 39
+      "days_held": 40
     },
     "DIVISLAB.NS": {
       "qty": 3,
@@ -23,7 +23,7 @@
       "entry_date": "2026-09-01",
       "strategy": "momentum_breakout",
       "stop_loss": 9093.03,
-      "days_held": 23
+      "days_held": 24
     },
     "GNFC.NS": {
       "qty": 51,
@@ -31,7 +31,7 @@
       "entry_date": "2026-09-23",
       "strategy": "momentum_breakout",
       "stop_loss": 562.15,
-      "days_held": 7
+      "days_held": 8
     },
     "TITAN.NS": {
       "qty": 17,
@@ -39,7 +39,7 @@
       "entry_date": "2026-10-01",
       "strategy": "mean_reversion",
       "stop_loss": 4357.65,
-      "days_held": 1
+      "days_held": 2
     },
     "APOLLOHOSP.NS": {
       "qty": 9,
@@ -47,6 +47,150 @@
       "entry_date": "2026-10-02",
       "strategy": "mean_reversion",
       "stop_loss": 7726.82,
+      "days_held": 1
+    },
+    "FEDERALBNK.NS": {
+      "qty": 37,
+      "entry_price": 327.3500061035156,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 310.98250579833984,
+      "days_held": 0
+    },
+    "SUNPHARMA.NS": {
+      "qty": 6,
+      "entry_price": 1779.699951171875,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 1690.714953613281,
+      "days_held": 0
+    },
+    "NESTLEIND.NS": {
+      "qty": 9,
+      "entry_price": 1297.0999755859375,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 1232.2449768066406,
+      "days_held": 0
+    },
+    "SBIN.NS": {
+      "qty": 12,
+      "entry_price": 958.0,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 910.0999999999999,
+      "days_held": 0
+    },
+    "FINEORG.NS": {
+      "qty": 2,
+      "entry_price": 5210.0,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 4949.5,
+      "days_held": 0
+    },
+    "SHRIRAMFIN.NS": {
+      "qty": 12,
+      "entry_price": 971.4000244140625,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 922.8300231933594,
+      "days_held": 0
+    },
+    "TECHM.NS": {
+      "qty": 7,
+      "entry_price": 1535.9000244140625,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 1459.1050231933593,
+      "days_held": 0
+    },
+    "EICHERMOT.NS": {
+      "qty": 1,
+      "entry_price": 7021.5,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 6670.424999999999,
+      "days_held": 0
+    },
+    "LUPIN.NS": {
+      "qty": 6,
+      "entry_price": 2011.0,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 1910.4499999999998,
+      "days_held": 0
+    },
+    "HINDALCO.NS": {
+      "qty": 13,
+      "entry_price": 938.4000244140625,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 891.4800231933593,
+      "days_held": 0
+    },
+    "GRASIM.NS": {
+      "qty": 4,
+      "entry_price": 2972.0,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 2823.4,
+      "days_held": 0
+    },
+    "NAVINFLUOR.NS": {
+      "qty": 1,
+      "entry_price": 8272.0,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 7858.4,
+      "days_held": 0
+    },
+    "CUMMINSIND.NS": {
+      "qty": 2,
+      "entry_price": 4832.2998046875,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 4590.684814453125,
+      "days_held": 0
+    },
+    "INDUSINDBK.NS": {
+      "qty": 13,
+      "entry_price": 886.5999755859375,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 842.2699768066406,
+      "days_held": 0
+    },
+    "ASIANPAINT.NS": {
+      "qty": 5,
+      "entry_price": 2366.0,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 2247.7,
+      "days_held": 0
+    },
+    "GAIL.NS": {
+      "qty": 72,
+      "entry_price": 167.5,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 159.125,
+      "days_held": 0
+    },
+    "ICICIBANK.NS": {
+      "qty": 9,
+      "entry_price": 1332.0,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 1265.3999999999999,
+      "days_held": 0
+    },
+    "COALINDIA.NS": {
+      "qty": 28,
+      "entry_price": 425.1000061035156,
+      "entry_date": "2026-10-05",
+      "strategy": "quality_momentum",
+      "stop_loss": 403.8450057983398,
       "days_held": 0
     }
   },
@@ -368,9 +512,171 @@
       "value": 73201.5,
       "date": "2026-10-02T16:18:56.833394",
       "strategy": "mean_reversion"
+    },
+    {
+      "action": "BUY",
+      "ticker": "FEDERALBNK.NS",
+      "qty": 37,
+      "price": 327.3500061035156,
+      "value": 12111.950225830078,
+      "date": "2026-10-05T19:20:26.914676",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "SUNPHARMA.NS",
+      "qty": 6,
+      "price": 1779.699951171875,
+      "value": 10678.19970703125,
+      "date": "2026-10-05T19:20:27.177943",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "NESTLEIND.NS",
+      "qty": 9,
+      "price": 1297.0999755859375,
+      "value": 11673.899780273438,
+      "date": "2026-10-05T19:20:27.428238",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "SBIN.NS",
+      "qty": 12,
+      "price": 958.0,
+      "value": 11496.0,
+      "date": "2026-10-05T19:20:27.555378",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "FINEORG.NS",
+      "qty": 2,
+      "price": 5210.0,
+      "value": 10420.0,
+      "date": "2026-10-05T19:20:27.645407",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "SHRIRAMFIN.NS",
+      "qty": 12,
+      "price": 971.4000244140625,
+      "value": 11656.80029296875,
+      "date": "2026-10-05T19:20:27.779161",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "TECHM.NS",
+      "qty": 7,
+      "price": 1535.9000244140625,
+      "value": 10751.300170898438,
+      "date": "2026-10-05T19:20:27.951701",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "EICHERMOT.NS",
+      "qty": 1,
+      "price": 7021.5,
+      "value": 7021.5,
+      "date": "2026-10-05T19:20:28.056417",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "LUPIN.NS",
+      "qty": 6,
+      "price": 2011.0,
+      "value": 12066.0,
+      "date": "2026-10-05T19:20:28.165728",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "HINDALCO.NS",
+      "qty": 13,
+      "price": 938.4000244140625,
+      "value": 12199.200317382812,
+      "date": "2026-10-05T19:20:28.347104",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "GRASIM.NS",
+      "qty": 4,
+      "price": 2972.0,
+      "value": 11888.0,
+      "date": "2026-10-05T19:20:28.484846",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "NAVINFLUOR.NS",
+      "qty": 1,
+      "price": 8272.0,
+      "value": 8272.0,
+      "date": "2026-10-05T19:20:28.603525",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "CUMMINSIND.NS",
+      "qty": 2,
+      "price": 4832.2998046875,
+      "value": 9664.599609375,
+      "date": "2026-10-05T19:20:28.730764",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "INDUSINDBK.NS",
+      "qty": 13,
+      "price": 886.5999755859375,
+      "value": 11525.799682617188,
+      "date": "2026-10-05T19:20:28.857496",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "ASIANPAINT.NS",
+      "qty": 5,
+      "price": 2366.0,
+      "value": 11830.0,
+      "date": "2026-10-05T19:20:28.978864",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "GAIL.NS",
+      "qty": 72,
+      "price": 167.5,
+      "value": 12060.0,
+      "date": "2026-10-05T19:20:29.127266",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "ICICIBANK.NS",
+      "qty": 9,
+      "price": 1332.0,
+      "value": 11988.0,
+      "date": "2026-10-05T19:20:29.245897",
+      "strategy": "quality_momentum"
+    },
+    {
+      "action": "BUY",
+      "ticker": "COALINDIA.NS",
+      "qty": 28,
+      "price": 425.1000061035156,
+      "value": 11902.800170898438,
+      "date": "2026-10-05T19:20:29.352620",
+      "strategy": "quality_momentum"
     }
   ],
-  "last_updated": "2026-10-02T16:18:56.833396",
+  "last_updated": "2026-10-05T19:20:29.352622",
   "strategy_allocations": {
     "dual_momentum": 0.0,
     "momentum_breakout": 0.0,
