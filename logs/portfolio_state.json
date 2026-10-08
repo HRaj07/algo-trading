@@ -7,7 +7,7 @@
       "entry_date": "2026-08-06",
       "strategy": "momentum_breakout",
       "stop_loss": 40961.88,
-      "days_held": 47
+      "days_held": 48
     },
     "SUNDRMFAST.NS": {
       "qty": 28,
@@ -15,7 +15,7 @@
       "entry_date": "2026-08-10",
       "strategy": "momentum_breakout",
       "stop_loss": 1038.7,
-      "days_held": 42
+      "days_held": 43
     },
     "DIVISLAB.NS": {
       "qty": 3,
@@ -23,7 +23,7 @@
       "entry_date": "2026-09-01",
       "strategy": "momentum_breakout",
       "stop_loss": 9093.03,
-      "days_held": 26
+      "days_held": 27
     },
     "GNFC.NS": {
       "qty": 51,
@@ -31,7 +31,7 @@
       "entry_date": "2026-09-23",
       "strategy": "momentum_breakout",
       "stop_loss": 562.15,
-      "days_held": 10
+      "days_held": 11
     },
     "TITAN.NS": {
       "qty": 17,
@@ -39,7 +39,7 @@
       "entry_date": "2026-10-01",
       "strategy": "mean_reversion",
       "stop_loss": 4357.65,
-      "days_held": 4
+      "days_held": 5
     },
     "APOLLOHOSP.NS": {
       "qty": 9,
@@ -47,7 +47,7 @@
       "entry_date": "2026-10-02",
       "strategy": "mean_reversion",
       "stop_loss": 7726.82,
-      "days_held": 3
+      "days_held": 4
     },
     "FEDERALBNK.NS": {
       "qty": 37,
@@ -55,7 +55,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 310.98250579833984,
-      "days_held": 2
+      "days_held": 3
     },
     "SUNPHARMA.NS": {
       "qty": 6,
@@ -63,7 +63,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 1690.714953613281,
-      "days_held": 2
+      "days_held": 3
     },
     "NESTLEIND.NS": {
       "qty": 9,
@@ -71,7 +71,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 1232.2449768066406,
-      "days_held": 2
+      "days_held": 3
     },
     "SBIN.NS": {
       "qty": 12,
@@ -79,7 +79,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 910.0999999999999,
-      "days_held": 2
+      "days_held": 3
     },
     "FINEORG.NS": {
       "qty": 2,
@@ -87,7 +87,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 4949.5,
-      "days_held": 2
+      "days_held": 3
     },
     "SHRIRAMFIN.NS": {
       "qty": 12,
@@ -95,7 +95,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 922.8300231933594,
-      "days_held": 2
+      "days_held": 3
     },
     "TECHM.NS": {
       "qty": 7,
@@ -103,7 +103,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 1459.1050231933593,
-      "days_held": 2
+      "days_held": 3
     },
     "EICHERMOT.NS": {
       "qty": 1,
@@ -111,7 +111,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 6670.424999999999,
-      "days_held": 2
+      "days_held": 3
     },
     "LUPIN.NS": {
       "qty": 6,
@@ -119,7 +119,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 1910.4499999999998,
-      "days_held": 2
+      "days_held": 3
     },
     "HINDALCO.NS": {
       "qty": 13,
@@ -127,7 +127,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 891.4800231933593,
-      "days_held": 2
+      "days_held": 3
     },
     "GRASIM.NS": {
       "qty": 4,
@@ -135,7 +135,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 2823.4,
-      "days_held": 2
+      "days_held": 3
     },
     "NAVINFLUOR.NS": {
       "qty": 1,
@@ -143,7 +143,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 7858.4,
-      "days_held": 2
+      "days_held": 3
     },
     "CUMMINSIND.NS": {
       "qty": 2,
@@ -151,7 +151,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 4590.684814453125,
-      "days_held": 2
+      "days_held": 3
     },
     "INDUSINDBK.NS": {
       "qty": 13,
@@ -159,7 +159,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 842.2699768066406,
-      "days_held": 2
+      "days_held": 3
     },
     "ASIANPAINT.NS": {
       "qty": 5,
@@ -167,7 +167,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 2247.7,
-      "days_held": 2
+      "days_held": 3
     },
     "GAIL.NS": {
       "qty": 72,
@@ -175,7 +175,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 159.125,
-      "days_held": 2
+      "days_held": 3
     },
     "ICICIBANK.NS": {
       "qty": 9,
@@ -183,7 +183,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 1265.3999999999999,
-      "days_held": 2
+      "days_held": 3
     },
     "COALINDIA.NS": {
       "qty": 28,
@@ -191,7 +191,7 @@
       "entry_date": "2026-10-05",
       "strategy": "quality_momentum",
       "stop_loss": 403.8450057983398,
-      "days_held": 2
+      "days_held": 3
     },
     "POLYCAB.NS": {
       "qty": 1,
@@ -199,7 +199,7 @@
       "entry_date": "2026-10-06",
       "strategy": "quality_momentum",
       "stop_loss": 7739.65,
-      "days_held": 1
+      "days_held": 2
     },
     "ABB.NS": {
       "qty": 1,
@@ -207,7 +207,7 @@
       "entry_date": "2026-10-06",
       "strategy": "quality_momentum",
       "stop_loss": 6766.375,
-      "days_held": 1
+      "days_held": 2
     }
   },
   "trade_history": [
@@ -710,7 +710,7 @@
       "strategy": "quality_momentum"
     }
   ],
-  "last_updated": "2026-10-07T17:28:21.016891",
+  "last_updated": "2026-10-08T17:31:55.447062",
   "strategy_allocations": {
     "dual_momentum": 0.0,
     "momentum_breakout": 0.0,
