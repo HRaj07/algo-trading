@@ -3837,3 +3837,57 @@ TypeError: NDFrame.fillna() got an unexpected keyword argument 'method'
 ✅ Daily run complete | 20 buys, 0 sells
 2026-10-08 17:31:57 | INFO     | main | Portfolio: {'cash': 477953.99, 'n_positions': 26, 'total_value': 976000.14, 'total_return_pct': -2.4, 'positions': ['BOSCHLTD.NS', 'SUNDRMFAST.NS', 'DIVISLAB.NS', 'GNFC.NS', 'TITAN.NS', 'APOLLOHOSP.NS', 'FEDERALBNK.NS', 'SUNPHARMA.NS', 'NESTLEIND.NS', 'SBIN.NS', 'FINEORG.NS', 'SHRIRAMFIN.NS', 'TECHM.NS', 'EICHERMOT.NS', 'LUPIN.NS', 'HINDALCO.NS', 'GRASIM.NS', 'NAVINFLUOR.NS', 'CUMMINSIND.NS', 'INDUSINDBK.NS', 'ASIANPAINT.NS', 'GAIL.NS', 'ICICIBANK.NS', 'COALINDIA.NS', 'POLYCAB.NS', 'ABB.NS'], 'last_updated': '2026-10-08T17:31:55.447062'}
 2026-10-08 17:31:57 | INFO     | main | ✅ Discord notification sent
+2026-10-09 17:00:44 | WARNING  | data.fetcher | nsepy not available, using yfinance only
+2026-10-09 17:00:44 | INFO     | main | ============================================================
+2026-10-09 17:00:44 | INFO     | main | AlgoTrade India | Daily Run | 2026-10-09 17:00:44
+2026-10-09 17:00:44 | INFO     | main | ============================================================
+2026-10-09 17:00:44 | INFO     | data.fetcher | DataFetcher initialized | cache: data/cache
+2026-10-09 17:00:44 | INFO     | engine.portfolio | Loaded portfolio: ₹477,954 cash, 26 positions
+2026-10-09 17:00:44 | INFO     | main | 
+[1/3] Running Dual Momentum Strategy...
+2026-10-09 17:00:44 | INFO     | strategies.dual_momentum | Dual Momentum: Fetching data for today's signal...
+2026-10-09 17:01:12 | INFO     | data.fetcher | Fetched data for 49/49 tickers
+2026-10-09 17:01:12 | INFO     | strategies.dual_momentum | Dual Momentum: Absolute momentum negative → Cash mode
+2026-10-09 17:01:12 | INFO     | main |   → Dual Momentum: IN CASH
+2026-10-09 17:01:12 | INFO     | main | 
+[2/3] Running Momentum Breakout Strategy...
+2026-10-09 17:01:12 | INFO     | strategies.momentum_breakout | Momentum Breakout: Fetching data...
+2026-10-09 17:02:11 | INFO     | data.fetcher | Fetched data for 137/139 tickers
+2026-10-09 17:02:11 | INFO     | main |   Scanned: 137 | Breakouts: 0
+2026-10-09 17:02:11 | INFO     | main | 
+[3/3] Running Mean Reversion Strategy...
+2026-10-09 17:02:11 | INFO     | strategies.mean_reversion | Mean Reversion: Fetching data...
+2026-10-09 17:02:20 | INFO     | data.fetcher | Fetched data for 49/49 tickers
+2026-10-09 17:02:20 | INFO     | main |   → EXIT APOLLOHOSP.NS (stop_loss) | PnL: -5.7%
+2026-10-09 17:02:20 | INFO     | main | 
+[4/4] Running Quality Momentum Strategy...
+2026-10-09 17:02:20 | INFO     | strategies.quality_momentum | Quality Momentum: Fetching data for today's signal...
+2026-10-09 17:02:47 | INFO     | data.fetcher | Fetched data for 137/139 tickers
+2026-10-09 17:02:47 | INFO     | strategies.quality_momentum | Quality Momentum: Selected 20 stocks.
+2026-10-09 17:02:47 | INFO     | main |   → BUY FEDERALBNK.NS (score: 0.9)
+2026-10-09 17:02:47 | INFO     | main |   → BUY DIVISLAB.NS (score: 0.9)
+2026-10-09 17:02:47 | INFO     | main |   → BUY SBIN.NS (score: 0.8)
+2026-10-09 17:02:47 | INFO     | main |   → BUY SUNPHARMA.NS (score: 0.8)
+2026-10-09 17:02:47 | INFO     | main |   → BUY TITAN.NS (score: 0.8)
+2026-10-09 17:02:47 | INFO     | main |   → BUY GRASIM.NS (score: 0.8)
+2026-10-09 17:02:47 | INFO     | main |   → BUY NESTLEIND.NS (score: 0.8)
+2026-10-09 17:02:47 | INFO     | main |   → BUY POLYCAB.NS (score: 0.8)
+2026-10-09 17:02:47 | INFO     | main |   → BUY EICHERMOT.NS (score: 0.8)
+2026-10-09 17:02:47 | INFO     | main |   → BUY MARICO.NS (score: 0.8)
+2026-10-09 17:02:47 | INFO     | main |   → BUY TECHM.NS (score: 0.8)
+2026-10-09 17:02:47 | INFO     | main |   → BUY SUNDRMFAST.NS (score: 0.8)
+2026-10-09 17:02:47 | INFO     | main |   → BUY HINDALCO.NS (score: 0.8)
+2026-10-09 17:02:47 | INFO     | main |   → BUY NAVINFLUOR.NS (score: 0.7)
+2026-10-09 17:02:47 | INFO     | main |   → BUY ICICIBANK.NS (score: 0.7)
+2026-10-09 17:02:47 | INFO     | main |   → BUY CUMMINSIND.NS (score: 0.7)
+2026-10-09 17:02:47 | INFO     | main |   → BUY GAIL.NS (score: 0.7)
+2026-10-09 17:02:47 | INFO     | main |   → BUY FLUOROCHEM.NS (score: 0.7)
+2026-10-09 17:02:47 | INFO     | main |   → BUY LT.NS (score: 0.7)
+2026-10-09 17:02:47 | INFO     | main |   → BUY CANBK.NS (score: 0.7)
+2026-10-09 17:02:47 | INFO     | engine.portfolio | SELL APOLLOHOSP.NS: 9 @ ₹7666.00 | PnL: ₹-4,208 (-5.7%) ❌ [stop_loss]
+2026-10-09 17:02:49 | INFO     | engine.risk | Portfolio: ₹971,793 | Return: -2.8%
+2026-10-09 17:02:49 | INFO     | reports.generate_report | Dashboard generated: reports/index.html
+2026-10-09 17:02:49 | INFO     | main | 
+✅ Daily run complete | 20 buys, 1 sells
+2026-10-09 17:02:49 | INFO     | main | Portfolio: {'cash': np.float64(546947.99), 'n_positions': 25, 'total_value': np.float64(971792.64), 'total_return_pct': np.float64(-2.82), 'positions': ['BOSCHLTD.NS', 'SUNDRMFAST.NS', 'DIVISLAB.NS', 'GNFC.NS', 'TITAN.NS', 'FEDERALBNK.NS', 'SUNPHARMA.NS', 'NESTLEIND.NS', 'SBIN.NS', 'FINEORG.NS', 'SHRIRAMFIN.NS', 'TECHM.NS', 'EICHERMOT.NS', 'LUPIN.NS', 'HINDALCO.NS', 'GRASIM.NS', 'NAVINFLUOR.NS', 'CUMMINSIND.NS', 'INDUSINDBK.NS', 'ASIANPAINT.NS', 'GAIL.NS', 'ICICIBANK.NS', 'COALINDIA.NS', 'POLYCAB.NS', 'ABB.NS'], 'last_updated': '2026-10-09T17:02:47.322983'}
+2026-10-09 17:02:50 | INFO     | main | ✅ Discord notification sent
